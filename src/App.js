@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react";
+import PostList from "./component/PostList";
+import Story from "./component/Story";
+import SearchBar from "./component/SearchBar/SearchBar";
+import NavBar from "./component/NavBar/NavBar";
+import {robots} from "./component/robots";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+ 	constructor() {
+    	super()
+    	this.state = {
+    		robots: robots,
+      		search: false,
+      		hearts: 0
+    	}
+  	}
+
+ 	isSearchClick = (event) => {
+    	this.setState({ search: true })
+ 	}
+
+	heartClick = (event) => {
+		this.setState({ hearts: this.state.hearts += 1 })
+	}
+
+	render() {
+		if(this.state.search === true) {
+			return(
+				<div>
+					<Story />
+					<SearchBar />
+					<PostList robots={this.state.robots} hearts={this.state.hearts} />
+				</div>
+			)
+		} else {
+			return(
+				<div>
+					<Story />
+					<NavBar searchclick={this.isSearchClick} />
+					<PostList robots={this.state.robots} />
+				</div>
+			)
+		}
+	}
 }
 
 export default App;

@@ -1,0 +1,36 @@
+.navbar {
+	padding: 8px 12px 20px 12px;
+}
+
+.navbar1 {
+	flex-grow: 1;
+	display: flex;
+}
+
+.instalogo {
+	padding: 25px 12px 16px 12px;
+	margin-bottom: 19px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 92px;
+}
+
+.navitem {
+	padding: 12px;
+	margin: 8px 0px;
+}
+
+#navitem {
+	padding: 12px;
+	margin: 8px 0px;
+}
+
+.navtitle {
+	padding-left: 16px;
+}
+
+.person {
+	width: 24px;
+	height: 24px;
+}

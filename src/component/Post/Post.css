@@ -1,0 +1,37 @@
+.modal-header {
+    border-bottom: 0 none;
+    float: right;
+}
+/*
+.modal {
+	background-color: transparent;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	width: 1000px;
+}
+
+.modal-dialog {
+	background-color: transparent;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	width: 1000px;
+}
+*/
+.modal-content {
+	background-color: black;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.main-modal {
+	margin-left: auto;
+    margin-right: auto;
+	min-width: 80%;
+
+}
+#postimg {
+  width: 100%;
+}
+
