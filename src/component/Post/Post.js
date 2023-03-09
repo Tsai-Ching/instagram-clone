@@ -7,6 +7,9 @@ import ReadMoreReact from 'read-more-react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './Post.css';
+import Comments from "../../comments/Comments";
+import Scroll from "../Scroll";
+
 
 const Post = (props) => {
 	const myRef = useRef(null);
@@ -90,8 +93,11 @@ const Post = (props) => {
 										    </div>
 										        <h1 className="dtc v-base f6 f5-ns fw6 lh-title mv0 self-center white">{myUserId.current} </h1>
 					      				</div>
-						        		<p className="white pa3-ns bt bb  b--dark-gray">{myTextContent.current}</p>
-						        	
+					      				<Scroll>
+							        		<p className="white pa3-ns bt bb  b--dark-gray">{myTextContent.current}</p>
+							        		<Comments currentUserId='1' className="white" />
+							        	</Scroll>
+							        	<h5 className='white likes mh0 mb2 pt3'> <span ref={myRef}>0</span>個讚</h5>
 						        	</div>
 					        	</div>
 					        </Modal.Body>

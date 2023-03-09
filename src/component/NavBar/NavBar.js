@@ -1,5 +1,5 @@
 import React from "react";
-import logo from './logo.png'
+import logo from '../../logo.png'
 import './NavBar.css'
 import { Search } from "react-bootstrap-icons";
 import { HouseDoorFill } from "react-bootstrap-icons";

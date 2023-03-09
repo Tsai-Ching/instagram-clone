@@ -1,10 +1,10 @@
 import React from "react";
-import React from "./PostList";
+import "./Scroll.css";
 
-const Scroll = () => {
+const Scroll = (props) => {
 	return (
-		<div>
-			<PostList />
+		<div className='scroll'>
+			{props.children}
 		</div>
 	);
 }

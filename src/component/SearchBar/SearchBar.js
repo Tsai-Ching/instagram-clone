@@ -34,6 +34,7 @@ class SearchBar extends Component {
 		const filterRobots = robots.filter(robot => {
 	    	return(robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase()))
 	    })
+	    const {closeclick} = this.props
 		return (
 			<div id="content">
 				<div >
@@ -68,6 +69,7 @@ class SearchBar extends Component {
 					<article id="searchbar" className="absolute br3 br--right h-100 bg-black ba b--black-10">
 						<div>
 							<h2 id="searchbar2" className="white mv2">搜尋</h2>
+							<h4 onClick={closeclick}>關掉</h4>
 							<div className='mh3 mb3'>
 								<div className="flex pv1 ph3 bg-dark-gray silver br3">
 									<Search size={16} className="self-center mr2 moon-gray" />

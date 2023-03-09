@@ -4,6 +4,13 @@ import Story from "./component/Story";
 import SearchBar from "./component/SearchBar/SearchBar";
 import NavBar from "./component/NavBar/NavBar";
 import {robots} from "./component/robots";
+import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import Home from './pages/Home';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Dashboard from './pages/dashboard';
+import Logout from './pages/Logout';
 
 class App extends Component {
  	constructor() {
@@ -27,6 +34,14 @@ class App extends Component {
 		if(this.state.search === true) {
 			return(
 				<div>
+					<Routes>
+						<Route path='/' element={<Home/>} />
+						<Route path='/register' element={<Register/>} />
+						<Route path='/login' element={<Login/>} />
+						<Route path='/dashboard' element={<Dashboard/>} />
+						<Route path='/logout' element={<Logout/>} />
+						<Route path='/postlist' element={<PostList robots={this.state.robots} hearts={this.state.hearts}/>} />
+					</Routes>
 					<Story />
 					<SearchBar />
 					<PostList robots={this.state.robots} hearts={this.state.hearts} />
@@ -35,9 +50,15 @@ class App extends Component {
 		} else {
 			return(
 				<div>
-					<Story />
-					<NavBar searchclick={this.isSearchClick} />
-					<PostList robots={this.state.robots} />
+					<Routes>
+						<Route path='/' element={<Home/>} />
+						<Route path='/register' element={<Register/>} />
+						<Route path='/login' element={<Login/>} />
+						<Route path='/dashboard' element={<Dashboard/>} />
+						<Route path='/logout' element={<Logout/>} />
+						<Route path='/postlist' element={<PostList robots={this.state.robots} hearts={this.state.hearts}/>} />
+					</Routes>
+
 				</div>
 			)
 		}
