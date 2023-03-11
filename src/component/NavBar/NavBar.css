@@ -1,29 +1,16 @@
 .navbar {
-	padding: 8px 12px 20px 12px;
+	width: 6rem;
+	padding: 0;
+	margin: 0;
+	transition: width 200ms ease;
 }
 
-.navbar1 {
-	flex-grow: 1;
-	display: flex;
-}
-
-.instalogo {
-	padding: 25px 12px 16px 12px;
-	margin-bottom: 19px;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	height: 92px;
-}
-
-.navitem {
+.nav-link {
+	text-decoration: none;
 	padding: 12px;
 	margin: 8px 0px;
-}
-
-#navitem {
-	padding: 12px;
-	margin: 8px 0px;
+	height: 4rem;
+	filter: grayscale(100%) opacity(0.7);
 }
 
 .navtitle {
@@ -33,4 +20,30 @@
 .person {
 	width: 24px;
 	height: 24px;
+}
+
+.link-text {
+	display: none;
+	font-size: 1.25rem;
+}
+
+.navbar:hover {
+	width: 16rem;
+}
+
+.navbar:hover .link-text {
+	display: block;
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  color: white;
+}
+
+.open {
+	display: block;
+}
+
+.close {
+	display: none;
 }

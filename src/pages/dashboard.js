@@ -48,8 +48,7 @@ const Dashboard = () => {
 	return (
 		<div>
 			<div style={{float: 'right'}}>
-				<h1>Helloooooooooooooooooooooooooooooooooooo {loggedInUsername}</h1>
-				<Link to='/logout'> Logggggggggggggggggggggggggggggggggggggggg out</Link>
+				<Link to='/logout'> Log out</Link>
 			</div>
 		<Story />
 		<PostList robots={robots} hearts={hearts} />

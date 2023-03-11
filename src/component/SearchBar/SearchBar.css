@@ -30,12 +30,12 @@
 
 
 #searchbar2 {
-	padding: 12px 14px 36px 24px;
-	margin: -4px 0px -5px 0px;
+  padding: 12px 14px 36px 24px;
+  margin: -4px 0px -5px 0px;
 }
 
 #searchbar3 {
-	border-top: 1px solid dark-grey;
+  border-top: 1px solid dark-grey;
 }
 
   @keyframes slideInLeft {
@@ -46,5 +46,11 @@
       transform: translateX(0);
     }
   }
+.open {
+  display: block;
+}
 
+.close {
+  display: none;
+}
 

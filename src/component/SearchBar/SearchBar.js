@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useEffect, useRef} from "react";
 import { HouseDoorFill } from "react-bootstrap-icons";
 import { Compass } from "react-bootstrap-icons";
 import { ChatDots } from "react-bootstrap-icons";
@@ -16,10 +16,12 @@ import {robots} from "../robots";
 class SearchBar extends Component {
  	constructor(props) {
     	super(props)
+    	this.myRef = React.createRef();
     	this.state = {
      		robots: robots,
      		searchfield: '',
-      		search: false
+      		search: false,
+      		isOpen: true
     	}
   	}
 
@@ -30,11 +32,26 @@ class SearchBar extends Component {
     	this.setState({ searchfield: event.target.value })
   	}
 
+ //  	componentDidMount(){
+ //  		const closeDropdown = () => {
+	//   		document.body.addEventListener('click', () => {
+	//   			console.log('click')
+	//   			this.setState({isOpen: false})
+	//   		});
+	//   	}
+	// }
+  	
+
 	render() {
 		const filterRobots = robots.filter(robot => {
 	    	return(robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase()))
 	    })
 	    const {closeclick} = this.props
+	    const closeDropdown = (event) => {
+	  		this.setState({ isOpen: false })
+	  		console.log('click')
+	  		console.log(this.state.isOpen)
+	  	}
 		return (
 			<div id="content">
 				<div >
@@ -65,11 +82,11 @@ class SearchBar extends Component {
 					</nav>
 				</div>
 
-				<div id="slideleft" className="fixed">
+				<div id="slideleft" className="fixed + ({this.state.isOpen}? open : close)" ref={this.myRef}>
 					<article id="searchbar" className="absolute br3 br--right h-100 bg-black ba b--black-10">
 						<div>
 							<h2 id="searchbar2" className="white mv2">搜尋</h2>
-							<h4 onClick={closeclick}>關掉</h4>
+							<h4 onClick= {closeDropdown}>關掉</h4>
 							<div className='mh3 mb3'>
 								<div className="flex pv1 ph3 bg-dark-gray silver br3">
 									<Search size={16} className="self-center mr2 moon-gray" />
