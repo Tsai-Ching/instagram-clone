@@ -38,3 +38,7 @@
 body {
 	background-color: black;
 }
+
+.post-container {
+	max-width: 470px;
+}

@@ -40,10 +40,61 @@
   color: white;
 }
 
+/*以下為複製貼上*/？#content {
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  height: 100%; /* Full height */
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+  top: 0;
+  bottom: 0;
+  border: solid 1px red; 
+  overflow: 
+  }
+
+#sidebar {
+  padding: 8px 12px 20px 12px;
+  height: 100vh;
+  transform: translateX(172px);
+}
+
+#icon {
+  margin: 8px 0px;
+  padding: 12px;
+}
+
+#searchbar {
+  width: 397px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+
+#searchbar2 {
+  padding: 12px 14px 36px 24px;
+  margin: -4px 0px -5px 0px;
+}
+
+#searchbar3 {
+  border-top: 1px solid dark-grey;
+}
+
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 .open {
-	display: block;
+  display: block;
 }
 
 .close {
-	display: none;
+  display: none;
 }

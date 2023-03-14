@@ -8,6 +8,7 @@
   overflow: auto; /* Enable scrolling if the sidenav has too much content */
   top: 0;
   bottom: 0;
+  border: solid 1px red; 
   }
 
 #sidebar {
