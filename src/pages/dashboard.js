@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useLoggedInUser } from "../util/localStorage";
 import { Link, useNavigate } from "react-router-dom";
 
-import PostList from "../component/PostList";
+import PostList from "../component/post/PostList/PostList";
 import Story from "../component/Story";
 import NavBar from "../component/NavBar/NavBar";
 import {robots as robotsArray} from "../component/robots";

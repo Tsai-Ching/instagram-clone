@@ -7,8 +7,8 @@ import ReadMoreReact from 'read-more-react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './Post.css';
-import Comments from "../../comments/Comments";
-import Scroll from "../Scroll";
+import Comments from "../../../comments/Comments";
+import Scroll from "../../Scroll";
 
 
 const Post = (props) => {

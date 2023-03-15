@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import PostList from "./component/PostList";
+import PostList from "./component/post/PostList/PostList";
 import Story from "./component/Story";
 import SearchBar from "./component/SearchBar/SearchBar";
 import NavBar from "./component/NavBar/NavBar";
