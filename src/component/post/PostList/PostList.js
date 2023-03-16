@@ -1,34 +1,31 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Post from "../Post/Post";
 import "./PostList.css";
 import PostForm from "../PostForm";
-import {getComments as getCommentsApi} from "../../../api";
+import {getComments as getPostsApi,
+		createComment as createPostApi
+} from "../../../api";
 
-const PostList = ({robots, updatePost}) => {
+const PostList = () => {
 	const [backendPosts, setBackendPosts] = useState([])
 
-	const updatePost = (text) => {
-		updatePostApi(text).then(() => {
-			const updatedBackendPosts = backendPosts.map((backendPost) => {
-				return {...backendPost, post: text};
-
-			});
-			setBackendPosts(updatedBackendPosts);
+	const addPost = (postContent, photoURL) => {
+		createPostApi(postContent, photoURL).then((post) => {
+			setBackendPosts([post, ...backendPosts]);
 		});
 	};
-	const rootComments = backendComments.filter((backendComment) => 
-	backendComment.parentId === null);
+
 	useEffect(() => {
-		getCommentsApi().then((data) => {
+		getPostsApi().then((data) => {
 			setBackendPosts(data)
 		})
 	},[])
 
 	return (
 		<div className='main-content'>
-			<PostForm handleSubmit = {(text) => updatePost(text)>
-			{robots.map((robot, i) => 
-				<Post key={i} name={robots[i].name} id={robots[i].id} />
+			<PostForm handleSubmit = {(postContent, photoURL) => addPost(postContent, photoURL)} />
+			{backendPosts.map((backendPost) => 
+				<Post key={backendPost.id} post={backendPost} />
 			)}
 		</div>
 	);
