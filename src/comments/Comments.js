@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
 import Comment from "./Comment";
 import {
-	getComments as getCommentsApi,
-	createComment as createCommentApi,
-	deleteComment as deleteCommentApi,
-	updateComment as updateCommentApi
-} from "../api";
+	getUsers as getUsersApi,
+	createUser as createUserApi,
+	deleteUser as deleteUserApi,
+	updateUser as updateUserApi
+} from "../util/api";
 import CommentForm from "./CommentForm";
 
 
@@ -22,14 +22,14 @@ const Comments = (currentUserId) => {
 			new Date(a.createdAt).getTime() -  new Date(b.createdAt).getTime()
 		);
 	const addComment = (text, parentId) => {
-		createCommentApi(text, parentId).then((comment) => {
+		createUserApi(text, parentId).then((comment) => {
 			setBackendComments([comment, ...backendComments]);
 			setActiveComment(null);
 		});
 	};
 	const deleteComment = (commentId) => {
 		if(window.confirm('確定刪除？')) {
-			deleteCommentApi().then(() => {
+			deleteUserApi().then(() => {
 				const updatedBackendComments = backendComments.filter(
 					(backendComment) => backendComment.id !== commentId
 				);
@@ -38,7 +38,7 @@ const Comments = (currentUserId) => {
 		}
 	}
 	const updateComment = (text, commentId) => {
-		updateCommentApi(text).then(() => {
+		updateUserApi(text).then(() => {
 			const updatedBackendComments = backendComments.map((backendComment) => {
 				if(backendComment.id === commentId) {
 					return {...backendComment, body: text};
@@ -50,7 +50,7 @@ const Comments = (currentUserId) => {
 		});
 	};
 	useEffect(() => {
-		getCommentsApi().then((data) => {
+		getUsersApi().then((data) => {
 			setBackendComments(data)
 		})
 	},[])

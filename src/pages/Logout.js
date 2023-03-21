@@ -7,7 +7,7 @@ const Logout = () => {
 
 	useEffect(() => {
 		logoutUser()
-		navigate('/', {replace: true})
+		navigate('/login', {replace: true})
 	},[])
 
 	return (

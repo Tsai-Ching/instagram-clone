@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useNavigate, Link } from "react-router-dom";
-import {createUser} from '../util/localStorage'
+import {createUser} from '../../util/localStorage'
 
 
 const Register = () => {

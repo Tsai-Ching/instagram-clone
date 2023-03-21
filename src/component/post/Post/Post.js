@@ -8,11 +8,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './Post.css';
 import Comments from "../../../comments/Comments";
-import Scroll from "../../Scroll";
+import Scroll from "../../scroll/Scroll";
 import { Link } from "react-router-dom";
 
 
-const Post = ({post}) => {
+const Post = ({user}) => {
 	const myRef = useRef(null);
 	const myRef1 = useRef(null);
 
@@ -37,17 +37,17 @@ const Post = ({post}) => {
 		<div className='post-container white mv4 w-100 w-50-m w-33-l mw7 center items-stretch-ns flex flex-column-ns' style={{marginBottom:'0 -1px 12px -1px'}}>
 			<div style={{margin:'8px 4px 12px'}}>
 				<div class="dtc w2 v-mid">
-			    	<Link to={'/mainpage/' + post.username} ><img src={post.userImage} className="ba b--black-10 db br-100 w1 w2-ns h1 h2-ns" /></Link>
+			    	<Link to={'/mainpage/' + user.username} ><img src={user.userImage} className="ba b--black-10 db br-100 w1 w2-ns h1 h2-ns" /></Link>
 			    </div>
 	      		<div class="dtc v-mid pl0">
-			        <h1 class="f6 f5-ns fw6 lh-title white mv0">{post.username} </h1>
+			        <h1 class="f6 f5-ns fw6 lh-title white mv0">{user.username} </h1>
 	      		</div>
 	      	</div>	
       		<div>
       			<img 
       			alt='post' 
       			className='ba b--gray br3' style={{height: '468px', width: '468px', objectFit: 'cover'}} 
-				src={post.photo}
+				src={user.photo}
 				/> 
       		</div>
       		<div>
@@ -68,18 +68,18 @@ const Post = ({post}) => {
 						      			<img 
 						      			id='postimg'
 						      			alt='post' 
-						      			src={post.photo}
+						      			src={user.photo}
 						      			/>
 						      		</div>
 					      			<div class="col">
 					      				<div className="flex flex-row pa3-ns">
 					      					<div class="dtc w2 v-base mr3">
-										    	<img src={post.userImage} className="dtc v-base ba b--black-10 db br-100 w1 w2-ns h1 h2-ns ma0"/>
+										    	<img src={user.userImage} className="dtc v-base ba b--black-10 db br-100 w1 w2-ns h1 h2-ns ma0"/>
 										    </div>
-										        <h1 className="dtc v-base f6 f5-ns fw6 lh-title mv0 self-center white">{post.username}</h1>
+										        <h1 className="dtc v-base f6 f5-ns fw6 lh-title mv0 self-center white">{user.username}</h1>
 					      				</div>
 					      				<Scroll>
-							        		<p className="white pa3-ns bt bb  b--dark-gray">{post.post}</p>
+							        		<p className="white pa3-ns bt bb  b--dark-gray">{user.post}</p>
 							        		<Comments currentUserId='1' className="white" />
 							        	</Scroll>
 							        	<h5 className='white likes mh0 mb2 pt3'> <span ref={myRef}>0</span>個讚</h5>
@@ -93,8 +93,8 @@ const Post = ({post}) => {
 	      			<p className='likes mh0 mb2'> <span ref={myRef}>0</span>個讚</p>
 	      		</section>
 	      		<section className='ma0-ns content tl'>
-           			<p className='ma0-ns content dn'>{post.post}</p>
-           			 <ReadMoreReact text={post.post} min='0' ideal='40' max='80' readMoreText="...更多"/>
+           			<p className='ma0-ns content dn'>{user.post}</p>
+           			 <ReadMoreReact text={user.post} min='0' ideal='40' max='80' readMoreText="...更多"/>
 				</section>
 			</div>
 

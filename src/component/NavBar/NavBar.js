@@ -8,46 +8,43 @@ import { ChatDots } from "react-bootstrap-icons";
 import { Heart } from "react-bootstrap-icons";
 import { PlusSquare } from "react-bootstrap-icons";
 import { List } from "react-bootstrap-icons";
-import '../SearchBar/SearchBar.css';
 import 'animate.css';
 import SearchResult from '../SearchResult';
 import SearchBox from '../SearchBox';
-import {robots as robotsArray} from "../robots";
 
-const NavBar = ({searchclick, handleShow}) => {
-	const [robots, setRobots] = useState(robotsArray)
+const NavBar = ({users, searchclick, handleShow}) => {
 	const [searchfield, setSearchfield] = useState('')
 	const [isOpen, setIsOpen] = useState(false)
 
 
-	const filterRobots = robots.filter(robot => {
-    	return(robot.name.toLowerCase().includes(searchfield.toLowerCase()))
+	const filterUsers = users.filter(user => {
+    	return(user.username.toLowerCase().includes(searchfield.toLowerCase()))
     })
 
 	const onButtonClick = () => {
     	document.getElementById('myInput').value = '';
   	};
   	const onSearchChange = (event) => {
-    	this.setState({ searchfield: event.target.value })
+    	setSearchfield(event.target.value)
   	}
 
   	const onIsOpenSet = (e) => {
-  		console.log(myRef.current.id)
-  		console.log(e.target.id)
   		setIsOpen(!isOpen.value)
 
   	}
+  	const closeDropdown = () => {
+   		setIsOpen(false)
+   	}
 
   	const myRef = useRef('');
-
-  	useEffect(() => {
-  		const closeDropdown = (e) => {
-  			if(e.target.id !== 'search')
-  			setIsOpen(false)
-  		}
-  		window.addEventListener('click', closeDropdown)
-  		return () => document.body.removeEventListener('click', closeDropdown)
-  	}, [])
+  	// useEffect(() => {
+  	// 	const closeDropdown = (e) => {
+  	// 		if(e.target.id !== 'search')
+  	// 		setIsOpen(false)
+  	// 	}
+  	// 	window.addEventListener('click', closeDropdown)
+  	// 	return () => document.body.removeEventListener('click', closeDropdown)
+  	// }, [])
 
 
 	return (
@@ -114,6 +111,7 @@ const NavBar = ({searchclick, handleShow}) => {
 					<article id="searchbar" className="fixed br3 br--right h-100 bg-black ba b--black-10">
 						<div>
 							<h2 id="searchbar2" className="white mv2">搜尋</h2>
+							<span className="tr white" onClick={closeDropdown}>x</span>
 							<div className='mh3 mb3'>
 								<div className="flex pv1 ph3 bg-dark-gray silver br3">
 									<Search size={16} className="self-center mr2 moon-gray" />
@@ -132,7 +130,7 @@ const NavBar = ({searchclick, handleShow}) => {
 					
 
 						<div className="mh4-ns mv2-ns flex justify-between">
-							<SearchResult robots={filterRobots}/>
+							<SearchResult filterUsers={filterUsers}/>
 						</div>
 
 					</article>

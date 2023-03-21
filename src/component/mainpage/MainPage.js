@@ -2,22 +2,12 @@ import React, {useEffect, useState} from "react";
 import './MainPage.css'
 import GalleryItem from './GalleryItem'
 import {useParams} from 'react-router-dom';
-import {getComments as getPostsApi
-} from "../../api";
 
-
-const MainPage = () => {
+const MainPage = (users) => {
 	let {username} = useParams();
-	const [backendPosts, setBackendPosts] = useState([])
-	const userPhotos = backendPosts.filter((backendComment) => 
+	const userPhotos = users.filter((backendComment) => 
 		backendComment.username === username);
 
-	useEffect(() => {
-			getPostsApi().then((data) => {
-				setBackendPosts(data)
-				console.log(userPhotos)
-			})
-		},[])
 	return (
 		<div className='mainpage-body'>
 			<header className='db mainpage-header'>

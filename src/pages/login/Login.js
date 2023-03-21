@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import {createUser, loginUser} from '../util/localStorage'
+import {createUser, loginUser} from '../../util/localStorage'
 import './Login.css'
-import logo from '../logo.png'
+import logo from '../../logo.png'
 
 const Login = () => {
 	const [username, setUsername] = useState('');

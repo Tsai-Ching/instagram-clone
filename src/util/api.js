@@ -1,7 +1,7 @@
 //simulate real api
 //every method returns promise
 
-export const getComments = async () => {
+export const getUsers = async () => {
   return [
     {
       id: "1",
@@ -38,7 +38,7 @@ export const getComments = async () => {
     {
       id: "3",
       body: "First comment first child",
-      username: "John",
+      username: "Stacy",
       userId: "2",
       parentId: "1",
       createdAt: "2021-08-16T23:00:33.010+02:00",
@@ -54,7 +54,7 @@ export const getComments = async () => {
     {
       id: "4",
       body: "Second comment second child",
-      username: "John",
+      username: "Emma",
       userId: "2",
       parentId: "2",
       createdAt: "2021-08-16T23:00:33.010+02:00",
@@ -70,7 +70,7 @@ export const getComments = async () => {
   ];
 };
 
-export const createComment = async (postContent,photoURL, text, parentId = null) => {
+export const createUser = async (postContent,photoURL, text, parentId = null) => {
   return {
     id: Math.random().toString(36).substr(2, 9),
     body: text,
@@ -85,10 +85,10 @@ export const createComment = async (postContent,photoURL, text, parentId = null)
   };
 };
 
-export const updateComment = async (text) => {
+export const updateUser = async (text) => {
   return { text };
 };
 
-export const deleteComment = async () => {
+export const deleteUser = async () => {
   return {};
 };

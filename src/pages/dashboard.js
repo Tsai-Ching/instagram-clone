@@ -3,7 +3,7 @@ import { useLoggedInUser } from "../util/localStorage";
 import { Link, useNavigate } from "react-router-dom";
 import Logout from './Logout';
 import Modal from 'react-bootstrap/Modal';
-import PostForm from '../component/post/PostForm'
+import PostForm from '../component/post/postform/PostForm'
 import PostList from "../component/post/PostList/PostList";
 import NavBar from "../component/NavBar/NavBar";
 
@@ -22,7 +22,7 @@ const Dashboard = (props) => {
   
 	useEffect(() => {
 		if(isLoggedIn === 'no') {
-				navigate("/")
+				navigate("/login")
 			};
 		},[isLoggedIn])
 
@@ -46,8 +46,8 @@ const Dashboard = (props) => {
 				</Modal.Body>
 			</Modal>
 
-			<PostList hearts={hearts} post={props.post}/>
-			<NavBar handleShow={handleShow}/>
+			<PostList hearts={hearts} users={props.users}/>
+			<NavBar handleShow={handleShow} users={props.users} />
 		</div>
 	)
 }
