@@ -1,44 +1,53 @@
 import React, {useEffect, useState} from 'react';
 import { useLoggedInUser } from "../util/localStorage";
 import { Link, useNavigate } from "react-router-dom";
+import Logout from './Logout';
 import Modal from 'react-bootstrap/Modal';
+import PostForm from '../component/post/PostForm'
 import PostList from "../component/post/PostList/PostList";
-import Story from "../component/Story";
 import NavBar from "../component/NavBar/NavBar";
-import {robots as robotsArray} from "../component/robots";
 
-
-const Dashboard = () => {
-	const [robots, setRobots] = useState(robotsArray);
-	const [hearts, setHearts] = useState(0);
+const Dashboard = (props) => {
+	const [loggedInUsername, isLoggedIn] = useLoggedInUser()
+	const navigate = useNavigate();
+	const [lgShow, setLgShow] = useState(false);
+  	const handleClose = () => setLgShow(false);
+  	const handleShow = () => setLgShow(true);
+  	
+  	const [hearts, setHearts] = useState(0);
 
 	const heartClick = (event) => {
 		setHearts(hearts += 1)
 	}
-
-	const [loggedInUsername, isLoggedIn] = useLoggedInUser()
-	const navigate = useNavigate();
-
+  
 	useEffect(() => {
 		if(isLoggedIn === 'no') {
-			navigate("/")
-		};
-	},[isLoggedIn])
+				navigate("/")
+			};
+		},[isLoggedIn])
 
 	if(isLoggedIn === 'unknown') {
-			return (
-				<h1>Loading...</h1>
-			)
-		};
+		return (
+			<h1>Loading...</h1>
+		)
+	};
 
 	return (
 		<div>
-			<div style={{float: 'right'}}>
+			<div className='tr'>
 				<Link to='/logout'> Log out</Link>
 			</div>
-		<Story />
-		<PostList robots={robots} hearts={hearts} />
-		<NavBar />
+
+	      	<Modal dialogClassName="main-modal" size="lg" show={lgShow} onHide={handleClose}>
+				<Modal.Header closeButton className='modal-header'>
+				</Modal.Header>
+				<Modal.Body className="show-grid bg-transparent" >
+					<PostForm onHide={handleClose} handleSubmit={props.handleSubmit} />
+				</Modal.Body>
+			</Modal>
+
+			<PostList hearts={hearts} post={props.post}/>
+			<NavBar handleShow={handleShow}/>
 		</div>
 	)
 }

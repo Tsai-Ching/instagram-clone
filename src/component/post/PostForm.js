@@ -1,6 +1,7 @@
 import React, {useState, useRef} from "react";
+import "./PostForm.css";
 
-const PostForm = ( {handleSubmit} ) => {
+const PostForm = ( {handleSubmit, onHide} ) => {
 
 	const inputRef = useRef(null);
 	const outputRef = useRef(null);
@@ -18,9 +19,8 @@ const PostForm = ( {handleSubmit} ) => {
     function displayImages() {
 	  let images = ""
 	  imagesArray.forEach((image, index) => {
-	    images += `<div class="image">
-	                <img src="${URL.createObjectURL(image)}" alt="image">
-	                <span onclick="deleteImage(${index})">&times;</span>
+	    images += `<div class="image-container dib relative">
+	                <img src="${URL.createObjectURL(image)}" alt="image" className='image'>
 	              </div>`
 	  })
 	  outputRef.current.innerHTML = images
@@ -39,26 +39,36 @@ const PostForm = ( {handleSubmit} ) => {
 		setPostContent('')
 	}
 	return (
-		<section class="tc pa3 pa5-ns">
-		  <form onSubmit={onSubmit} class="hide-child relative ba b--black-20 mw5 center">
-		  	<input 
-					type="file" 
-					class="file" 
-					multiple="multiple" 
-					accept="image/jpeg, image/png, image/jpg"
-					ref={inputRef} 
-					onChange={onChange}
-			/>
-			<output ref={outputRef} class="db"></output>
-		    <div class="pa2 bt b--black-20">
-		      <textarea
-					value={postContent}
-					onChange={(e)=>{setPostContent(e.target.value)}}
-					placeholder='撰寫說明文字......'
-				/>	      
+		<section class="center bg-dark-gray post-form">
+		  <form onSubmit={onSubmit} class=" h-100 relative center form">
+		  	<div className='row ma0 bb b--gray'>
+			  	<header className='col white ma0 mw-100 relative flex flex-row'>
+			  		<span onClick={deleteImage} className='tl pa2 flex b'>&times;</span>
+			  		<span className='pa2 flex center b'>建立新貼文</span>
+			  		<button className='tr pa2 flex b' onClick={onHide}>分享</button>
+			  	</header>
+			</div>
+		  	<div className='row w-100 ma0 down-area'>
+		  		<div class='col-md-6 h-100 br b--gray flex tc'>
+				  	<input 
+							type="file" 
+							class="file db center" 
+							multiple="multiple" 
+							accept="image/jpeg, image/png, image/jpg"
+							ref={inputRef} 
+							onChange={onChange}
+							align="center"
+					/>
+						<output ref={outputRef} className='db'></output>
+				</div>	
+			    <div class="pa2 b--black-20 col-md-6 tl">
+			      <textarea
+						value={postContent}
+						onChange={(e)=>{setPostContent(e.target.value)}}
+						placeholder='撰寫說明文字......'
+					/>	      
+			    </div>
 		    </div>
-		    <button>分享</button>
-		    <a class="child absolute top-1 right-1 ba bw1 black-40 grow no-underline br-100 w1 h1 pa2 lh-solid b" href="#">×</a>
 		  </form>
 		</section>
 	);

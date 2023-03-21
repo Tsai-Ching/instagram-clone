@@ -14,7 +14,7 @@ import SearchResult from '../SearchResult';
 import SearchBox from '../SearchBox';
 import {robots as robotsArray} from "../robots";
 
-const NavBar = ({searchclick}) => {
+const NavBar = ({searchclick, handleShow}) => {
 	const [robots, setRobots] = useState(robotsArray)
 	const [searchfield, setSearchfield] = useState('')
 	const [isOpen, setIsOpen] = useState(false)
@@ -90,7 +90,7 @@ const NavBar = ({searchclick}) => {
 					<li>
 						<a className="flex items-center white nav-link">
 							<PlusSquare size={24} />
-							<span className="link-text ml3">建立</span>
+							<span className="link-text ml3" onClick={handleShow}>建立</span>
 						</a>
 					</li>
 					<li>

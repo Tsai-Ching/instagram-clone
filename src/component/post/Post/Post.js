@@ -9,29 +9,14 @@ import Modal from 'react-bootstrap/Modal';
 import './Post.css';
 import Comments from "../../../comments/Comments";
 import Scroll from "../../Scroll";
+import { Link } from "react-router-dom";
 
 
 const Post = ({post}) => {
 	const myRef = useRef(null);
 	const myRef1 = useRef(null);
-	const myRef3 = useRef(null);
-
-	const postName = useRef(null);
-
-	const myText = faker.lorem.lines()
-
-	const postIMG = useRef(null);
-	const myTextContent = useRef(myText);
-
-	const myUser = faker.name.findName()
-	const myUserId = useRef(myUser);
-
-	const user = "https://robohash.org/" + `${post.id}/?set=set3.jpg`
-	const userPic = useRef(user);
-
 
 	const [lgShow, setLgShow] = useState(false);
-
   	const handleClose = () => setLgShow(false);
   	const handleShow = () => setLgShow(true);
 
@@ -50,17 +35,16 @@ const Post = ({post}) => {
 
 	return (
 		<div className='post-container white mv4 w-100 w-50-m w-33-l mw7 center items-stretch-ns flex flex-column-ns' style={{marginBottom:'0 -1px 12px -1px'}}>
-			<div style={{margin:'8px 4px 12px'}} ref={postName}>
+			<div style={{margin:'8px 4px 12px'}}>
 				<div class="dtc w2 v-mid">
-			    	<img src={user} className="ba b--black-10 db br-100 w1 w2-ns h1 h2-ns"/>
+			    	<Link to={'/mainpage/' + post.username} ><img src={post.userImage} className="ba b--black-10 db br-100 w1 w2-ns h1 h2-ns" /></Link>
 			    </div>
 	      		<div class="dtc v-mid pl0">
-			        <h1 class="f6 f5-ns fw6 lh-title white mv0">{myUserId.current} </h1>
+			        <h1 class="f6 f5-ns fw6 lh-title white mv0">{post.username} </h1>
 	      		</div>
 	      	</div>	
       		<div>
       			<img 
-      			ref={postIMG} 
       			alt='post' 
       			className='ba b--gray br3' style={{height: '468px', width: '468px', objectFit: 'cover'}} 
 				src={post.photo}
@@ -76,7 +60,6 @@ const Post = ({post}) => {
 	      			</button>
 
 	      			<Modal dialogClassName="main-modal" size="lg" show={lgShow} onHide={handleClose}>
-
 					        <Modal.Header closeButton className='modal-header'>
 					        </Modal.Header>
 					        <Modal.Body className="show-grid bg-transparent" >
@@ -91,9 +74,9 @@ const Post = ({post}) => {
 					      			<div class="col">
 					      				<div className="flex flex-row pa3-ns">
 					      					<div class="dtc w2 v-base mr3">
-										    	<img src={user} className="dtc v-base ba b--black-10 db br-100 w1 w2-ns h1 h2-ns ma0"/>
+										    	<img src={post.userImage} className="dtc v-base ba b--black-10 db br-100 w1 w2-ns h1 h2-ns ma0"/>
 										    </div>
-										        <h1 className="dtc v-base f6 f5-ns fw6 lh-title mv0 self-center white">{myUserId.current} </h1>
+										        <h1 className="dtc v-base f6 f5-ns fw6 lh-title mv0 self-center white">{post.username}</h1>
 					      				</div>
 					      				<Scroll>
 							        		<p className="white pa3-ns bt bb  b--dark-gray">{post.post}</p>
@@ -103,7 +86,6 @@ const Post = ({post}) => {
 						        	</div>
 					        	</div>
 					        </Modal.Body>
-
 			      </Modal>
 
 	      		</section>
@@ -111,7 +93,7 @@ const Post = ({post}) => {
 	      			<p className='likes mh0 mb2'> <span ref={myRef}>0</span>個讚</p>
 	      		</section>
 	      		<section className='ma0-ns content tl'>
-           			<p className='ma0-ns content dn' ref={myRef3}>myTextContent</p>
+           			<p className='ma0-ns content dn'>{post.post}</p>
            			 <ReadMoreReact text={post.post} min='0' ideal='40' max='80' readMoreText="...更多"/>
 				</section>
 			</div>

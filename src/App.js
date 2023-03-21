@@ -1,68 +1,47 @@
-import React, {Component} from "react";
-import PostList from "./component/post/PostList/PostList";
-import Story from "./component/Story";
-import SearchBar from "./component/SearchBar/SearchBar";
-import NavBar from "./component/NavBar/NavBar";
-import {robots} from "./component/robots";
+import React, {Component,useState, useEffect} from "react";
 import './App.css';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, useParams} from 'react-router-dom';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Dashboard from './pages/dashboard';
 import Logout from './pages/Logout';
+import MainPage from './component/mainpage/MainPage';
+import PostList from "./component/post/PostList/PostList";
+import {getComments as getPostsApi,
+		createComment as createPostApi
+} from "./api";
 
-class App extends Component {
- 	constructor() {
-    	super()
-    	this.state = {
-    		robots: robots,
-      		search: false,
-      		hearts: 0
-    	}
-  	}
+const App = () => {
+	let {username} = useParams();
+	const [backendPosts, setBackendPosts] = useState([])
 
- 	isSearchClick = (event) => {
-    	this.setState({ search: true })
- 	}
+	const addPost = (postContent, photoURL) => {
+	createPostApi(postContent, photoURL).then((post) => {
+		setBackendPosts([post, ...backendPosts]);
+	});
+};
 
-	heartClick = (event) => {
-		this.setState({ hearts: this.state.hearts += 1 })
-	}
+	useEffect(() => {
+		getPostsApi().then((data) => {
+			setBackendPosts(data)
+		})
+	},[])
+	return(
 
-	render() {
-		if(this.state.search === true) {
-			return(
-				<div>
-					<Routes>
-						<Route path='/' element={<Home/>} />
-						<Route path='/register' element={<Register/>} />
-						<Route path='/login' element={<Login/>} />
-						<Route path='/dashboard' element={<Dashboard/>} />
-						<Route path='/logout' element={<Logout/>} />
-						<Route path='/postlist' element={<PostList robots={this.state.robots} hearts={this.state.hearts}/>} />
-					</Routes>
-					<Story />
-					<SearchBar />
-					<PostList robots={this.state.robots} hearts={this.state.hearts} />
-				</div>
-			)
-		} else {
-			return(
-				<div>
-					<Routes>
-						<Route path='/' element={<Home/>} />
-						<Route path='/register' element={<Register/>} />
-						<Route path='/login' element={<Login/>} />
-						<Route path='/dashboard' element={<Dashboard/>} />
-						<Route path='/logout' element={<Logout/>} />
-						<Route path='/postlist' element={<PostList robots={this.state.robots} hearts={this.state.hearts}/>} />
-					</Routes>
-
-				</div>
-			)
-		}
-	}
+		<div>
+			<Routes>
+				<Route path='/' element={<Home/>} />
+				<Route path='/register' element={<Register/>} />
+				<Route path='/login' element={<Login/>} />
+				<Route path='/dashboard' element={<Dashboard post={backendPosts} handleSubmit={addPost} />} />
+				<Route path='/logout' element={<Logout/>} />
+				<Route path='/postlist' element={<PostList />} />
+				<Route path="/mainpage/:username" element={<MainPage post={backendPosts} />} />
+				<Route path='/logout' element={<Logout/>} />
+			</Routes>
+		</div>
+	)
 }
 
 export default App;

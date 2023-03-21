@@ -1,0 +1,52 @@
+.post-form {
+	max-width: 728px;
+	height: 431px;
+	margin: 0;
+  	padding: 0;
+}	
+
+.form {
+	background: #262626;
+}
+
+textarea {
+    border: none;
+    outline: none;
+}
+
+.image-container {
+	height: 348px;
+	width: 348px;
+}
+
+img {
+	display: block;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+input[type=file]{
+	color:transparent;
+	text-align: center;
+	margin: auto;
+}
+
+#file-upload-button {
+	text-align: center;
+	margin: auto;
+}
+
+textarea {
+ background-color: transparent;
+}
+
+header {
+	height: 43px;
+}
+
+.down-area {
+	height: 388px;
+}
+
+
