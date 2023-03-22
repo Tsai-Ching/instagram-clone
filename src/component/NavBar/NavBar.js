@@ -11,6 +11,7 @@ import { List } from "react-bootstrap-icons";
 import 'animate.css';
 import SearchResult from '../SearchResult';
 import SearchBox from '../SearchBox';
+import { Link } from "react-router-dom";
 
 const NavBar = ({users, searchclick, handleShow}) => {
 	const [searchfield, setSearchfield] = useState('')
@@ -48,16 +49,18 @@ const NavBar = ({users, searchclick, handleShow}) => {
 
 
 	return (
-		<div>
+		<div className='nav-container'>
 			<nav className='navbar flex flex-column h-100 br b--dark-gray w5 ma0 fixed top-0 bg-black'>
 				<ul className="flex flex-column items-center h-100 navbar-nav">
 					<li className='white nav-link'>
 						<i className="fa-brands fa-instagram fa-2x "></i>
 					</li>
 					<li>
-						<a className="flex items-center white nav-link">
-							<HouseDoorFill className="white" size={24} />
-							<span className="link-text ml3 fw6">首頁</span>
+						<a>
+							<Link to={'/dashboard/'} className="flex items-center white nav-link">
+								<HouseDoorFill className="white" size={24} />
+								<span className="link-text ml3 fw6">首頁</span>
+							</Link>
 						</a>
 					</li>
 					<li>

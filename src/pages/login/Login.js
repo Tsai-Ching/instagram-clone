@@ -20,7 +20,7 @@ const Login = () => {
 		};
 	}
 	return (
-		<div className='container'>
+		<div className='login-container'>
 			<main class="pa4 black-80">
 			  <form class="ba b--gray center signin-form" onSubmit={attemptLoginUser}>
 			    <fieldset id="sign_up" class="ba b--transparent ph0 mh0">

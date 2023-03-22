@@ -1,9 +1,14 @@
 import React from 'react';
 
-const GalleryItem = ({key, post}) => {
+const GalleryItem = ({user}) => {
 	return(
-		<div class="gallery-item" tabindex="0">
-			<img src={post.photo} class="gallery-image db" alt="" />
+		<div className='aspect-ratio--1x1 db relative'>
+			<img 
+				src={user.photo} 
+				class="gallery-image db " 
+				alt="" 
+				style={{width: '100%', objectFit: 'cover', position: 'absolute', height: '100%'}}
+			/>
 			<div class="gallery-item-info">
 				<ul>
 					<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 56</li>

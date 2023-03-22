@@ -1,3 +1,8 @@
+.nav-container {
+  z-index: 1;
+  position: absolute;
+}
+
 .navbar {
 	width: 6rem;
 	padding: 0;
