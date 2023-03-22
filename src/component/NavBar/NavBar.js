@@ -50,57 +50,61 @@ const NavBar = ({users, searchclick, handleShow}) => {
 
 	return (
 		<div className='nav-container'>
-			<nav className='navbar flex flex-column h-100 br b--dark-gray w5 ma0 fixed top-0 bg-black'>
+			<nav className='rightbar flex flex-column h-100 br b--dark-gray w5 ma0 fixed top-0 bg-black'>
 				<ul className="flex flex-column items-center h-100 navbar-nav">
 					<li className='white nav-link'>
-						<i className="fa-brands fa-instagram fa-2x "></i>
+						<a>
+							<Link to={'/dashboard/'} className="flex items-center white link-item">
+								<i className="fa-brands fa-instagram fa-2x "></i>
+							</Link>
+						</a>
 					</li>
 					<li>
 						<a>
-							<Link to={'/dashboard/'} className="flex items-center white nav-link">
+							<Link to={'/dashboard/'} className="flex items-center white link-item">
 								<HouseDoorFill className="white" size={24} />
 								<span className="link-text ml3 fw6">首頁</span>
 							</Link>
 						</a>
 					</li>
 					<li>
-						<a className="flex items-center white nav-link" ref={myRef} onClick={onIsOpenSet} id='search'>
+						<a className="flex items-center white link-item" ref={myRef} onClick={onIsOpenSet} id='search'>
 							<Search size={24} id='search'/>
 							<span className="link-text ml3 fw6" id='search'>搜尋</span>
 						</a>
 					</li>
 					<li>
-						<a className="flex items-center white nav-link">
+						<a className="flex items-center white link-item">
 						<Compass size={24} />
 						<span className="link-text ml3 fw6">探索</span>
 						</a>
 					</li>
 					<li>
-						<a className="flex items-center white nav-link">
+						<a className="flex items-center white link-item">
 							<ChatDots size={24} />
 							<span className="link-text ml3 fw6">訊息</span>
 						</a>
 					</li>
 					<li>
-						<a className="flex items-center white nav-link">
+						<a className="flex items-center white link-item">
 							<Heart size={24} />
 							<span className="link-text ml3 fw6">通知</span>
 						</a>
 					</li>
 					<li>
-						<a className="flex items-center white nav-link">
+						<a className="flex items-center white link-item" onClick={handleShow}>
 							<PlusSquare size={24} />
-							<span className="link-text ml3" onClick={handleShow}>建立</span>
+							<span className="link-text ml3">建立</span>
 						</a>
 					</li>
 					<li>
-						<a className="flex items-center white nav-link">
+						<a className="flex items-center white link-item">
 		       				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKboCkjXUKztIj7P8a5UjeFn0lAMQSp_TqhQ&usqp=CAU" className="person ba b--black-10 db br-100 "/>
 							<div className="link-text ml3 fw6" href="/contact">個人檔案</div>
 						</a>
 					</li>
 					<li>
-						<a className="flex items-center white nav-link">
+						<a className="flex items-center white link-item">
 							<div>
 								<List size={24} />
 							</div>

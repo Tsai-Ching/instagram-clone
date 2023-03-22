@@ -78,7 +78,7 @@ export const createUser = async (postContent,photoURL, text, parentId = null) =>
     userId: "1",
     username: "John",
     createdAt: new Date().toISOString(),
-    userImage:'',
+    userImage:'https://robohash.org/2',
     post: postContent,
     photo: photoURL,
     tags: ['']

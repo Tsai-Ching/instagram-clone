@@ -5,6 +5,7 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 
 	const inputRef = useRef(null);
 	const outputRef = useRef(null);
+	const inputDivRef = useRef(null);
 	let imagesArray = []
 	//手動上傳
 	const onChange = (event) => {
@@ -15,12 +16,23 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 		}
 		displayImages()
     }
+	const onDrop = (e) => {
+		e.preventDefault()
+	  	const files = e.dataTransfer.files
+	  	for (let i = 0; i < files.length; i++) {
+		    if (!files[i].type.match("image")) continue
+
+		    if (imagesArray.every(image => image.name !== files[i].name))
+		      imagesArray.push(files[i])
+		};
+		displayImages();
+	}
 
     function displayImages() {
 	  let images = ""
 	  imagesArray.forEach((image, index) => {
-	    images += `<div class="image-container dib relative">
-	                <img src="${URL.createObjectURL(image)}" alt="image" className='image'>
+	    images += `<div class="image">
+	                <img src="${URL.createObjectURL(image)}" alt="image" className='choosed-image'>
 	              </div>`
 	  })
 	  outputRef.current.innerHTML = images
@@ -35,7 +47,7 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 	const [photoURL, setPhotoURL] =useState('');
 	const onSubmit = (e) => {
 		e.preventDefault();
-		handleSubmit(postContent, photoURL);
+		handleSubmit(postContent,photoURL);
 		setPostContent('')
 	}
 	return (
@@ -49,7 +61,11 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 			  	</header>
 			</div>
 		  	<div className='row w-100 ma0 down-area'>
-		  		<div class='col-md-6 h-100 br b--gray flex tc'>
+		  		<div class='col-md-6 h-100 br b--gray flex tc input-div' ref={inputDivRef} onChange={onDrop} >
+		  			<lable class="add-image">
+		  				<i class="fa-regular fa-image fa-5x"></i>
+		  				<h1>將相片拖曳到這裡</h1>
+		  			</lable>
 				  	<input 
 							type="file" 
 							class="file db center" 
@@ -59,7 +75,7 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 							onChange={onChange}
 							align="center"
 					/>
-						<output ref={outputRef} className='db'></output>
+						<output ref={outputRef}></output>
 				</div>	
 			    <div class="pa2 b--black-20 col-md-6 tl">
 			      <textarea

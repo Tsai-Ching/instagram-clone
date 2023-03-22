@@ -16,19 +16,16 @@ const MainPage = (props) => {
 				<header className='db mainpage-header'>
 					<div class="mainpage-container">
 						<div class="profile">
-
 							<div class="profile-image">
 								{showUser.map((user) => 
 									<img key={user.id} src={user.userImage} className='db' alt="" />
 								)}
 							</div>
-
 							<div class="profile-user-settings">
-								<h1 class="profile-user-name">{username}</h1>
+								<h1 class="profile-user-name ma0 v-mid">{username}</h1>
 								<button class="btn profile-edit-btn">Edit Profile</button>
 								<button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
 							</div>
-
 							<div class="profile-stats">
 								<ul className='pa0 ma0'>
 									<li><span class="profile-stat-count">164</span> posts</li>
@@ -36,23 +33,17 @@ const MainPage = (props) => {
 									<li><span class="profile-stat-count">206</span> following</li>
 								</ul>
 							</div>
-
 							<div class="profile-bio">
 								<p><span class="profile-real-name">{username}</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
 							</div>
-
 						</div>
 					</div>
 				</header>
 
 				<main>
-
 					<div class="container">
-
 						<div class="gallery">
 							<div class="gallery-item aspect-ratio--1x1" tabindex="0">
-
-
 								{showUser.map((user) => 
 									<GalleryItem 
 										key={user.id} 
@@ -60,16 +51,10 @@ const MainPage = (props) => {
 										className='db'
 									/>
 								)}
-
 							</div>
-
 						</div>
-
-
 						<div class="loader"></div>
-
 					</div>
-
 				</main>
 			</div>
 		</div>

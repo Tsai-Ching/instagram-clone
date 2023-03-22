@@ -41,8 +41,8 @@ const Dashboard = (props) => {
 	      	<Modal dialogClassName="main-modal" size="lg" show={lgShow} onHide={handleClose}>
 				<Modal.Header closeButton className='modal-header'>
 				</Modal.Header>
-				<Modal.Body className="show-grid bg-transparent" >
-					<PostForm onHide={handleClose} handleSubmit={props.handleSubmit} />
+				<Modal.Body className="show-grid bg-transparent center" >
+					<PostForm className="center" onHide={handleClose} handleSubmit={props.handleSubmit} />
 				</Modal.Body>
 			</Modal>
 

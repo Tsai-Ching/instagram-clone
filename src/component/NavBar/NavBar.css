@@ -3,14 +3,14 @@
   position: absolute;
 }
 
-.navbar {
+.rightbar {
 	width: 6rem;
 	padding: 0;
 	margin: 0;
 	transition: width 200ms ease;
 }
 
-.nav-link {
+.link-item {
 	text-decoration: none;
 	padding: 12px;
 	margin: 8px 0px;
@@ -32,20 +32,21 @@
 	font-size: 1.25rem;
 }
 
-.navbar:hover {
+.rightbar:hover {
 	width: 16rem;
 }
 
-.navbar:hover .link-text {
+.rightbar:hover .link-text {
 	display: block;
 }
 
-.nav-link:hover {
+.link-item:hover {
   filter: grayscale(0%) opacity(1);
   color: white;
 }
 
-/*以下為複製貼上*/？#content {
+/*以下為複製貼上*/
+#content {
   display: -webkit-flex;
   -webkit-flex-direction: row;
   display: flex;
@@ -59,16 +60,6 @@
   overflow: 
   }
 
-#sidebar {
-  padding: 8px 12px 20px 12px;
-  height: 100vh;
-  transform: translateX(172px);
-}
-
-#icon {
-  margin: 8px 0px;
-  padding: 12px;
-}
 
 #searchbar {
   width: 397px;
