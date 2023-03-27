@@ -36,7 +36,7 @@ const App = () => {
 				<Route path='/logout' element={<Logout/>} />
 				<Route path='/postlist' element={<PostList />} />
 				<Route path="/mainpage/:username" element={<MainPage users={users} />} />
-				<Route path='/logout' element={<Logout/>} />
+			<Route path='/logout' element={<Logout/>} />
 			</Routes>
 		</div>
 	)

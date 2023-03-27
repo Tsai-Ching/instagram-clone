@@ -17,9 +17,7 @@ const MainPage = (props) => {
 					<div class="mainpage-container">
 						<div class="profile">
 							<div class="profile-image">
-								{showUser.map((user) => 
-									<img key={user.id} src={user.userImage} className='db' alt="" />
-								)}
+								<img src={showUser[0].userImage} className='db' alt="" />
 							</div>
 							<div class="profile-user-settings">
 								<h1 class="profile-user-name ma0 v-mid">{username}</h1>
@@ -43,7 +41,7 @@ const MainPage = (props) => {
 				<main>
 					<div class="container">
 						<div class="gallery">
-							<div class="gallery-item aspect-ratio--1x1" tabindex="0">
+							
 								{showUser.map((user) => 
 									<GalleryItem 
 										key={user.id} 
@@ -51,7 +49,7 @@ const MainPage = (props) => {
 										className='db'
 									/>
 								)}
-							</div>
+
 						</div>
 						<div class="loader"></div>
 					</div>

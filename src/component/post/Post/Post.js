@@ -35,18 +35,14 @@ const Post = ({user}) => {
 
 	return (
 		<div className='post-container white mv4 w-100 w-50-m w-33-l mw7 center items-stretch-ns flex flex-column-ns' style={{marginBottom:'0 -1px 12px -1px'}}>
-			<div style={{margin:'8px 4px 12px'}}>
-				<div class="dtc w2 v-mid">
-			    	<Link to={'/mainpage/' + user.username} ><img src={user.userImage} className="ba b--black-10 db br-100 w1 w2-ns h1 h2-ns" /></Link>
-			    </div>
-	      		<div class="dtc v-mid pl0">
-			        <h1 class="f6 f5-ns fw6 lh-title white mv0">{user.username} </h1>
-	      		</div>
+			<div class='flex items-center' style={{margin:'8px 4px 12px'}}>
+			    <Link to={'/mainpage/' + user.username}><div className="user-img"><img src={user.userImage}/></div></Link>
+			    <h1 class="f6 f5-ns fw6 lh-title white mv0 ml2">{user.username} </h1>
 	      	</div>	
       		<div>
       			<img 
       			alt='post' 
-      			className='ba b--gray br3' style={{height: '468px', width: '468px', objectFit: 'cover'}} 
+      			className='ba b--dark-gray br3' style={{height: '468px', width: '468px', objectFit: 'cover'}} 
 				src={user.photo}
 				/> 
       		</div>
@@ -72,14 +68,15 @@ const Post = ({user}) => {
 						      			/>
 						      		</div>
 					      			<div class="col">
-					      				<div className="flex flex-row pa3-ns">
-					      					<div class="dtc w2 v-base mr3">
-										    	<img src={user.userImage} className="dtc v-base ba b--black-10 db br-100 w1 w2-ns h1 h2-ns ma0"/>
-										    </div>
-										        <h1 className="dtc v-base f6 f5-ns fw6 lh-title mv0 self-center white">{user.username}</h1>
+					      				<div className="flex flex-row pa4 items-baseline">
+					      					<Link to={'/mainpage/' + user.username}><div className="user-img"><img src={user.userImage}/></div></Link>
+			    							<h1 class="f6 f5-ns fw6 lh-title white mv0 ml3">{user.username} </h1>
 					      				</div>
-					      				<Scroll>
-							        		<p className="white pa3-ns bt bb  b--dark-gray">{user.post}</p>
+					      				<Scroll >
+					      					<div className="flex flex-row pa4 items-start bt bb b--dark-gray">
+					      						<Link to={'/mainpage/' + user.username}><div className="user-img"><img src={user.userImage}/></div></Link>
+							        			<p className="white mb0 ml3">{user.post}</p>
+							        		</div>
 							        		<Comments currentUserId='1' className="white" />
 							        	</Scroll>
 							        	<h5 className='white likes mh0 mb2 pt3'> <span ref={myRef}>0</span>個讚</h5>

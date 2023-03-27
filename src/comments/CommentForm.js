@@ -15,9 +15,9 @@ const CommentForm = ({
 		setText('')
 	}
 	return (
-		<form onSubmit={onSubmit}>
+		<form onSubmit={onSubmit} className='flex tc'>
 			<textarea
-				className='comment-form-textarea'
+				className='comment-form-textarea bt b--dark-gray'
 				value={text}
 				onChange={(e)=>{setText(e.target.value)}}
 				placeholder='留言......'

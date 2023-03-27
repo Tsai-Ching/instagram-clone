@@ -33,19 +33,22 @@ const NavBar = ({users, searchclick, handleShow}) => {
   		setIsOpen(!isOpen.value)
 
   	}
-  	const closeDropdown = () => {
-   		setIsOpen(false)
-   	}
+  	// const closeDropdown = () => {
+   // 		setIsOpen(false)
+   // 	}
 
-  	const myRef = useRef('');
-  	// useEffect(() => {
-  	// 	const closeDropdown = (e) => {
-  	// 		if(e.target.id !== 'search')
-  	// 		setIsOpen(false)
-  	// 	}
-  	// 	window.addEventListener('click', closeDropdown)
-  	// 	return () => document.body.removeEventListener('click', closeDropdown)
-  	// }, [])
+  	const searchRef1 = useRef('');
+  	const searchRef2 = useRef('');
+
+  	useEffect(() => {
+  		let handler = (e) => {
+  			if(!searchRef1.current.contains(e.target) && !searchRef2.current.contains(e.target)) { 
+  				setIsOpen(false);
+  			}
+  		};
+  		window.addEventListener('mousedown', handler)
+  		//return () => document.body.removeEventListener('mousedown', closeDropdown)
+  	}, [])
 
 
 	return (
@@ -67,8 +70,8 @@ const NavBar = ({users, searchclick, handleShow}) => {
 							</Link>
 						</a>
 					</li>
-					<li>
-						<a className="flex items-center white link-item" ref={myRef} onClick={onIsOpenSet} id='search'>
+					<li ref={searchRef1}>
+						<a className="flex items-center white link-item" onClick={onIsOpenSet} id='search'>
 							<Search size={24} id='search'/>
 							<span className="link-text ml3 fw6" id='search'>搜尋</span>
 						</a>
@@ -114,11 +117,11 @@ const NavBar = ({users, searchclick, handleShow}) => {
 				</ul>
 			</nav>
 
-			<div id="slideleft" class={isOpen? 'open' : 'close'} >
+			<div id="slideleft" class={isOpen? 'open' : 'close'} ref={searchRef2}>
 					<article id="searchbar" className="fixed br3 br--right h-100 bg-black ba b--black-10">
 						<div>
 							<h2 id="searchbar2" className="white mv2">搜尋</h2>
-							<span className="tr white" onClick={closeDropdown}>x</span>
+							<span className="tr white">x</span>
 							<div className='mh3 mb3'>
 								<div className="flex pv1 ph3 bg-dark-gray silver br3">
 									<Search size={16} className="self-center mr2 moon-gray" />

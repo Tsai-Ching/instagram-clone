@@ -72,6 +72,7 @@
     border-radius: 50%;
     height: 152px;
     width: 152px;
+    object-fit: cover;
 }
 
 .profile-user-settings,
@@ -150,7 +151,6 @@
     margin: 1rem;
     color: #fff;
     cursor: pointer;
-    max-width: 33%;
 }
 
 .gallery-item:hover .gallery-item-info,
