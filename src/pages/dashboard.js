@@ -34,10 +34,6 @@ const Dashboard = (props) => {
 
 	return (
 		<div>
-			<div className='tr'>
-				<Link to='/logout'> Log out</Link>
-			</div>
-
 	      	<Modal dialogClassName="main-modal" size="lg" show={lgShow} onHide={handleClose}>
 				<Modal.Header closeButton className='modal-header'>
 				</Modal.Header>

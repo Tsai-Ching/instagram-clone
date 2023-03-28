@@ -34,15 +34,15 @@ const Post = ({user}) => {
 	}
 
 	return (
-		<div className='post-container white mv4 w-100 w-50-m w-33-l mw7 center items-stretch-ns flex flex-column-ns' style={{marginBottom:'0 -1px 12px -1px'}}>
+		<div className='post-container white mv4 mw7 center items-stretch-ns flex flex-column-ns relative' style={{marginBottom:'0 -1px 12px -1px' ,width: '33vw'}}>
 			<div class='flex items-center' style={{margin:'8px 4px 12px'}}>
 			    <Link to={'/mainpage/' + user.username}><div className="user-img"><img src={user.userImage}/></div></Link>
 			    <h1 class="f6 f5-ns fw6 lh-title white mv0 ml2">{user.username} </h1>
 	      	</div>	
-      		<div>
+      		<div class='square' style={{width: '100%'}}>
       			<img 
       			alt='post' 
-      			className='ba b--dark-gray br3' style={{height: '468px', width: '468px', objectFit: 'cover'}} 
+      			className='ba b--dark-gray br3 h-100 w-100' style={{objectFit: 'cover'}} 
 				src={user.photo}
 				/> 
       		</div>
