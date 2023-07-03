@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from "react";
-import Comment from "./Comment";
+import Comment from "./Comment/Comment";
 import {
 	getUsers as getUsersApi,
 	createUser as createUserApi,
 	deleteUser as deleteUserApi,
 	updateUser as updateUserApi
-} from "../util/api";
-import CommentForm from "./CommentForm";
+} from "../../util/api";
+import CommentForm from "./CommentForm/CommentForm";
 
 
 const Comments = (currentUserId) => {

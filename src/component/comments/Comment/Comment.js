@@ -1,5 +1,5 @@
 import React, {useRef,useEffect} from "react";
-import CommentForm from "./CommentForm";
+import CommentForm from "../CommentForm/CommentForm";
 import './Comment.css'
 import { Link } from "react-router-dom";
 
@@ -90,8 +90,10 @@ const Comment = ({
 						handleSubmit = {(text) => addComment(text, replyId)}
 					/>
 				)}
-				<p className='show-reply ml3' onClick={ToggleShow}>- 查看回覆</p>
+
 				{replies.length > 0 && (
+					<div>
+					<p className='show-reply ml3' onClick={ToggleShow}>- 查看回覆</p>
 					<div className='replies dn' ref={replyRef}>
 						{replies.map(reply => 
 							(<Comment 
@@ -107,6 +109,7 @@ const Comment = ({
 								updateComment={updateComment}
 							/>)
 						)}
+					</div>
 					</div>
 				)}
 			</div>

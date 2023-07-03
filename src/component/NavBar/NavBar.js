@@ -1,15 +1,11 @@
 import React, {useState, useEffect, useRef } from "react";
-import logo from '../../logo.png'
 import './NavBar.css'
 import { Search } from "react-bootstrap-icons";
 import { HouseDoorFill } from "react-bootstrap-icons";
-import { Compass } from "react-bootstrap-icons";
-import { ChatDots } from "react-bootstrap-icons";
-import { Heart } from "react-bootstrap-icons";
 import { PlusSquare } from "react-bootstrap-icons";
 import { BoxArrowLeft } from "react-bootstrap-icons";
 import 'animate.css';
-import SearchResult from '../SearchResult';
+import SearchResult from '..//SearchResult/SearchResult';
 import SearchBox from '../SearchBox';
 import { Link } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';

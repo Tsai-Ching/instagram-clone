@@ -38,7 +38,7 @@ const MainPage = (props) => {
 					</header>
 
 					<div className="gallery-container">
-						<div className="gallery">
+						<div className="gallery grid-container">
 							
 								{showUser.map((user) => 
 									<GalleryItem 
@@ -49,7 +49,6 @@ const MainPage = (props) => {
 								)}
 
 						</div>
-						<div className="loader"></div>
 					</div>
 
 				</div>

@@ -1,11 +1,9 @@
 import React, { useState, useRef } from "react";
-import { faker } from '@faker-js/faker';
 import 'animate.css';
 import ReadMoreReact from 'read-more-react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './Post.css';
-import Comments from "../../../comments/Comments";
+import Comments from "../../comments/Comments";
 import Scroll from "../../scroll/Scroll";
 import { Link } from "react-router-dom";
 
@@ -23,21 +21,21 @@ const Post = ({user, users}) => {
 		if (!isClicked) {
 			count.current = count.current + 1;
 			setIsClicked(true)
-			myRef1.current.innerHTML = `<i class="animate__animated animate__pulse fa-solid fa-heart fa-xl solidHeart"></i>`
+			myRef1.current.innerHTML = `<i className="animate__animated animate__pulse fa-solid fa-heart fa-xl solidHeart"></i>`
 		} else {
 			count.current = count.current - 1;
 			setIsClicked(false)
-			myRef1.current.innerHTML = `<i class="fa-regular fa-heart fa-xl"></i>`
+			myRef1.current.innerHTML = `<i className="fa-regular fa-heart fa-xl"></i>`
 		}
 	}
 
 	return (
 		<div className='post-container white mv4 mw7 center items-stretch-ns flex flex-column-ns relative' style={{marginBottom:'0 -1px 12px -1px' ,width: '33vw'}}>
-			<div class='flex items-center' style={{margin:'8px 4px 12px'}}>
-			    <Link to={'/mainpage/' + user.username}><div className="user-img"><img src={user.userImage}/></div></Link>
-			    <h1 class="f6 f5-ns fw6 lh-title white mv0 ml2">{user.username} </h1>
+			<div className='flex items-center' style={{margin:'8px 4px 12px'}}>
+			    <Link to={'/mainpage/' + user.username}><div className="user-img"><img alt='user' src={user.userImage}/></div></Link>
+			    <h1 className="f6 f5-ns fw6 lh-title white mv0 ml2">{user.username} </h1>
 	      	</div>	
-      		<div class='square' style={{width: '100%'}}>
+      		<div alt='user' className='square' style={{width: '100%'}}>
       			<img 
       			alt='post' 
       			className='ba b--dark-gray br3 h-100 w-100' style={{objectFit: 'cover'}} 
@@ -58,22 +56,22 @@ const Post = ({user, users}) => {
 					        <Modal.Header closeButton className='modal-header'>
 					        </Modal.Header>
 					        <Modal.Body className="show-grid bg-transparent" >
-					        	<div class="row">
-		          					<div class="col">
+					        	<div className="row">
+		          					<div className="col">
 						      			<img 
 						      			id='postimg'
 						      			alt='post' 
 						      			src={user.photo}
 						      			/>
 						      		</div>
-					      			<div class="col">
+					      			<div className="col">
 					      				<div className="flex flex-row pa4 items-baseline">
-					      					<Link to={'/mainpage/' + user.username}><div className="user-img"><img src={user.userImage}/></div></Link>
-			    							<h1 class="f6 f5-ns fw6 lh-title white mv0 ml3">{user.username} </h1>
+					      					<Link to={'/mainpage/' + user.username}><div className="user-img"><img alt='user' src={user.userImage}/></div></Link>
+			    							<h1 className="f6 f5-ns fw6 lh-title white mv0 ml3">{user.username} </h1>
 					      				</div>
 					      				<Scroll >
 					      					<div className="flex flex-row pa4 items-start bt bb b--dark-gray">
-					      						<Link to={'/mainpage/' + user.username}><div className="user-img"><img src={user.userImage}/></div></Link>
+					      						<Link to={'/mainpage/' + user.username}><div className="user-img"><img alt='user' src={user.userImage}/></div></Link>
 							        			<p className="white mb0 ml3">{user.post}</p>
 							        		</div>
 							        		<Comments currentUserId='1' className="white" />

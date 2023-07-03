@@ -50,7 +50,7 @@ export const getUsers = async () => {
   ];
 };
 
-export const createUser = async (text, parentId = null) => {
+export const createUser = async (postContent, photoURL, text, parentId = null) => {
   return {
     id: Math.random().toString(36).substr(2, 9),
     body: text,
@@ -59,8 +59,8 @@ export const createUser = async (text, parentId = null) => {
     parentId,
     createdAt: new Date().toISOString(),
     userImage:"https://media.istockphoto.com/id/482680318/photo/excited-selfies-with-her-feline-friend.jpg?s=612x612&w=0&k=20&c=Nej-upSvphHwH9yEHJOFJTwn5xkYLdizUI1gTItqt0U=",
-    post: '',
-    photo: ''
+    post: postContent,
+    photo: photoURL
   };
 };
 

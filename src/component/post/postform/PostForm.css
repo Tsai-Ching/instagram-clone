@@ -83,3 +83,6 @@ header {
   margin: auto; 
 }
 
+.file {
+  width: fit-content;
+}

@@ -36,6 +36,7 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 	              </div>`
 	  })
 	  outputRef.current.innerHTML = images
+	  imagesArray = []
 	}
 
 	function deleteImage(index) {
@@ -47,39 +48,49 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 	const [photoURL, setPhotoURL] =useState('');
 	const onSubmit = (e) => {
 		e.preventDefault();
+		if (inputRef.current.value == '') {
+		    alert("請選擇檔案");
+		    return false;
+		}
 		handleSubmit(postContent,photoURL);
 		setPostContent('')
+		onHide()
 	}
 	return (
 		<section class="center bg-dark-gray post-form">
 		  <form onSubmit={onSubmit} class=" h-100 relative center form">
 		  	<div className='row ma0 bb b--gray'>
 			  	<header className='col white ma0 mw-100 relative flex flex-row'>
-			  		<span onClick={deleteImage} className='tl pa2 flex b'>&times;</span>
+			  		<span  className='tl pa2 flex b'> 
+						<label for="upload-photo">...</label>
+						<input 
+							type="file" 
+							className="file db center" 
+							multiple="multiple" 
+							accept="image/jpeg, image/png, image/jpg"
+							ref={inputRef} 
+							align="center"
+							style={{display:'none'}}
+							id="upload-photo"
+							onChange={onChange}
+						/>
+					</span>
 			  		<span className='pa2 flex center b'>建立新貼文</span>
-			  		<button className='tr pa2 flex b' onClick={onHide}>分享</button>
+			  		<button className='tr pa2 flex b'>分享</button>
 			  	</header>
 			</div>
 		  	<div className='row w-100 ma0 down-area'>
 		  		<div class='col-md-6 h-100 br b--gray flex tc input-div' ref={inputDivRef} onChange={onDrop} >
-		  			<lable class="add-image">
+		  			<div class="add-image">
 		  				<i class="fa-regular fa-image fa-5x"></i>
 		  				<h1>將相片拖曳到這裡</h1>
-		  			</lable>
-				  	<input 
-							type="file" 
-							class="file db center" 
-							multiple="multiple" 
-							accept="image/jpeg, image/png, image/jpg"
-							ref={inputRef} 
-							onChange={onChange}
-							align="center"
-					/>
+		  			</div>
 						<output ref={outputRef}></output>
 				</div>	
 			    <div class="pa2 b--black-20 col-md-6 tl">
 			      <textarea
 						value={postContent}
+						className="white" 
 						onChange={(e)=>{setPostContent(e.target.value)}}
 						placeholder='撰寫說明文字......'
 					/>	      
