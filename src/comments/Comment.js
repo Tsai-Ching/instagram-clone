@@ -1,6 +1,7 @@
 import React, {useRef,useEffect} from "react";
 import CommentForm from "./CommentForm";
 import './Comment.css'
+import { Link } from "react-router-dom";
 
 const Comment = ({
 	comment, 
@@ -42,12 +43,12 @@ const Comment = ({
 
 	return (
 		<div className='comment ph4'>
-			<div className='comment-image-container'> 
-				<img src='/user-icon.png'/>
-			</div>
+			 <Link to={'/mainpage/' + comment.username}><div className='comment-image-container'> 
+				<img src={comment.userImage}/>
+			</div></Link>
 			<div className='comment-right-area'>
 				<div className='comment-content'>
-					<div className='comment-author ml3'>{comment.username}</div>
+					<Link to={'/mainpage/' + comment.username}><div className='comment-author ml3'>{comment.username}</div></Link>
 					{!isEditing && <div className='comment-text'>{comment.body}</div>}
 					{isEditing && (
 						<CommentForm 

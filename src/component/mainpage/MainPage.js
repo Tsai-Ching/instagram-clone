@@ -10,37 +10,35 @@ const MainPage = (props) => {
 		user.username === username);
 
 	return (
-		<div>
+		<div className='flex flex-row'>
 			<NavBar users={props.users}/>
-			<div className='mainpage-body'>
-				<header className='db mainpage-header'>
-					<div class="mainpage-container">
-						<div class="profile">
-							<div class="profile-image">
-								<img src={showUser[0].userImage} className='db' alt="" />
+			<div className='mainpage-container'>
+				<div className='mainpage-body flex flex-column'>
+					<header className='db mainpage-header'>
+							<div className="profile">
+								<div className="profile-image">
+									<img src={showUser[0].userImage} className='db' alt="" />
+								</div>
+								<div className="profile-user-settings">
+									<h1 className="profile-user-name ma0 v-mid">{username}</h1>
+									<button className="btn profile-edit-btn">Edit Profile</button>
+									<button className="btn profile-settings-btn" aria-label="profile settings"><i className="fas fa-cog" aria-hidden="true"></i></button>
+								</div>
+								<div className="profile-stats">
+									<ul className='pa0 ma0'>
+										<li><span className="profile-stat-count">164</span> posts</li>
+										<li><span className="profile-stat-count">188</span> followers</li>
+										<li><span className="profile-stat-count">206</span> following</li>
+									</ul>
+								</div>
+								<div className="profile-bio">
+									<p><span className="profile-real-name">{username}</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
+								</div>
 							</div>
-							<div class="profile-user-settings">
-								<h1 class="profile-user-name ma0 v-mid">{username}</h1>
-								<button class="btn profile-edit-btn">Edit Profile</button>
-								<button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
-							</div>
-							<div class="profile-stats">
-								<ul className='pa0 ma0'>
-									<li><span class="profile-stat-count">164</span> posts</li>
-									<li><span class="profile-stat-count">188</span> followers</li>
-									<li><span class="profile-stat-count">206</span> following</li>
-								</ul>
-							</div>
-							<div class="profile-bio">
-								<p><span class="profile-real-name">{username}</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
-							</div>
-						</div>
-					</div>
-				</header>
+					</header>
 
-				<main>
-					<div class="container">
-						<div class="gallery">
+					<div className="gallery-container">
+						<div className="gallery">
 							
 								{showUser.map((user) => 
 									<GalleryItem 
@@ -51,9 +49,10 @@ const MainPage = (props) => {
 								)}
 
 						</div>
-						<div class="loader"></div>
+						<div className="loader"></div>
 					</div>
-				</main>
+
+				</div>
 			</div>
 		</div>
 	);

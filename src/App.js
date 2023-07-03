@@ -10,16 +10,17 @@ import PostList from "./component/post/PostList/PostList";
 import {getUsers as getUsersApi,
 		createUser as createUserApi
 } from "./util/api";
+import Layout from './Layout';
 
 const App = () => {
 	let {username} = useParams();
 	const [users, setUsers] = useState([])
 
 	const addUser = (postContent, photoURL) => {
-	createUserApi(postContent, photoURL).then((user) => {
-		setUsers([user, ...users]);
-	});
-};
+		createUserApi(postContent, photoURL).then((user) => {
+			setUsers([user, ...users]);
+		});
+	};
 
 	useEffect(() => {
 		getUsersApi().then((data) => {
@@ -30,7 +31,8 @@ const App = () => {
 
 		<div>
 			<Routes>
-				<Route path='/register' element={<Register/>} />
+				<Route path='/' element={<Register/>} />
+				<Route path='/register' element={<Layout backgroundColor="#fff"><Register/></Layout>} />
 				<Route path='/login' element={<Login/>} />
 				<Route path='/dashboard' element={<Dashboard users={users} handleSubmit={addUser} />} />
 				<Route path='/logout' element={<Logout/>} />

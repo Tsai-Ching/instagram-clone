@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { faker } from '@faker-js/faker';
-//import { Send } from "react-bootstrap-icons";
-import { useRef } from 'react';
 import 'animate.css';
 import ReadMoreReact from 'read-more-react';
 import Button from 'react-bootstrap/Button';
@@ -12,23 +10,23 @@ import Scroll from "../../scroll/Scroll";
 import { Link } from "react-router-dom";
 
 
-const Post = ({user}) => {
-	const myRef = useRef(null);
+const Post = ({user, users}) => {
+	const count = useRef(0);
 	const myRef1 = useRef(null);
+	const [isClicked, setIsClicked] = useState(false);
 
 	const [lgShow, setLgShow] = useState(false);
   	const handleClose = () => setLgShow(false);
   	const handleShow = () => setLgShow(true);
 
-	let clicked = false;
 	const likeButtonClick = (event) => {
-		if (!clicked) {
-			myRef.current.textContent++
-			clicked = true
+		if (!isClicked) {
+			count.current = count.current + 1;
+			setIsClicked(true)
 			myRef1.current.innerHTML = `<i class="animate__animated animate__pulse fa-solid fa-heart fa-xl solidHeart"></i>`
 		} else {
-			myRef.current.textContent--
-			clicked = false
+			count.current = count.current - 1;
+			setIsClicked(false)
 			myRef1.current.innerHTML = `<i class="fa-regular fa-heart fa-xl"></i>`
 		}
 	}
@@ -44,6 +42,7 @@ const Post = ({user}) => {
       			alt='post' 
       			className='ba b--dark-gray br3 h-100 w-100' style={{objectFit: 'cover'}} 
 				src={user.photo}
+				onClick={handleShow}
 				/> 
       		</div>
       		<div>
@@ -79,7 +78,7 @@ const Post = ({user}) => {
 							        		</div>
 							        		<Comments currentUserId='1' className="white" />
 							        	</Scroll>
-							        	<h5 className='white likes mh0 mb2 pt3'> <span ref={myRef}>0</span>個讚</h5>
+							        	<h5 className='white likes mh0 mb2 pt3'> {count.current}個讚</h5>
 						        	</div>
 					        	</div>
 					        </Modal.Body>
@@ -87,7 +86,7 @@ const Post = ({user}) => {
 
 	      		</section>
 	      		<section className='tl'>
-	      			<p className='likes mh0 mb2'> <span ref={myRef}>0</span>個讚</p>
+	      			<p className='likes mh0 mb2'>{count.current}個讚</p>
 	      		</section>
 	      		<section className='ma0-ns content tl'>
            			<p className='ma0-ns content dn'>{user.post}</p>

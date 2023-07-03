@@ -1,15 +1,24 @@
+.mainpage-container {
+    margin-left: 6rem;
+    width: calc(100% - 10rem);
+}
+
 .mainpage-body {
     font-family: "Open Sans", Arial, sans-serif;
     min-height: 100vh;
     color: #fafafa;
-    padding-bottom: 3rem;
     font-size: 10px;
-    margin-left: 6rem;
+    margin: 0 4rem;
+    padding: 2rem 1.5rem 0;
+    width: 100%;
+
 }
 .mainpage-header {
-    height: 100%;
-    margin-bottom: 44px;
     border-bottom: solid #212121;
+    max-width: 93.5rem;
+    margin: 0 auto;
+    height: 40vh;
+    margin-bottom: 3rem;
 }
 
 *,
@@ -18,12 +27,6 @@
     box-sizing: border-box;
 }
 
-.mainpage-container {
-    max-width: 93.5rem;
-    margin: 0 auto;
-    padding: 0 2rem;
-    height: 100%;
-}
 
 .btn {
     display: inline-block;
@@ -137,6 +140,9 @@
 }
 
 /* Gallery Section */
+.gallery-container {
+    background-color: black;
+}
 
 .gallery {
     display: flex;
@@ -151,6 +157,7 @@
     margin: 1rem;
     color: #fff;
     cursor: pointer;
+    max-width: 30%;
 }
 
 .gallery-item:hover .gallery-item-info,

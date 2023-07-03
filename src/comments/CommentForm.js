@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './CommentForm.css';
 
 const CommentForm = ({
 	submitLabel, 
@@ -15,14 +16,13 @@ const CommentForm = ({
 		setText('')
 	}
 	return (
-		<form onSubmit={onSubmit} className='flex tc'>
-			<textarea
-				className='comment-form-textarea bt b--dark-gray'
+		<form onSubmit={onSubmit} className='flex flex-row bb b--dark-gray pb3 justify-center ph4 mt3'>
+			<input
+				className='comment-form-textarea h-auto v-mid'
 				value={text}
 				onChange={(e)=>{setText(e.target.value)}}
-				placeholder='留言......'
-				backgroundColor= 'transparent'
-			/>
+				placeholder='留言......'/>
+
 			<button className='comment-form-button' disable={isTextareaDisable}>{submitLabel}</button>
 			{hasCancelButton && (
 				<button onClick={handleCancel} type='button' className='comment-form-button comment-form-cancel-button'>取消</button>
