@@ -23,7 +23,7 @@ const CommentForm = ({
 				onChange={(e)=>{setText(e.target.value)}}
 				placeholder='留言......'/>
 
-			<button className='comment-form-button' disable={isTextareaDisable}>{submitLabel}</button>
+			<button className='comment-form-button' disable={isTextareaDisable} style={{minWidth: '3rem'}}>{submitLabel}</button>
 			{hasCancelButton && (
 				<button onClick={handleCancel} type='button' className='comment-form-button comment-form-cancel-button'>取消</button>
 			)}

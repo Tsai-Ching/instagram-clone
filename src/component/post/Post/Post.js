@@ -6,6 +6,7 @@ import './Post.css';
 import Comments from "../../comments/Comments";
 import Scroll from "../../scroll/Scroll";
 import { Link } from "react-router-dom";
+import {deleteUser as deleteUserApi} from "../../../util/api";
 
 
 const Post = ({user, users}) => {
@@ -74,7 +75,7 @@ const Post = ({user, users}) => {
 					      						<Link to={'/mainpage/' + user.username}><div className="user-img"><img alt='user' src={user.userImage}/></div></Link>
 							        			<p className="white mb0 ml3">{user.post}</p>
 							        		</div>
-							        		<Comments currentUserId='1' className="white" />
+							        		<Comments className="white" />
 							        	</Scroll>
 							        	<h5 className='white likes mh0 mb2 pt3'> {count.current}個讚</h5>
 						        	</div>

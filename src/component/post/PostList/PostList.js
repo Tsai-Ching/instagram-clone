@@ -5,7 +5,6 @@ import PostForm from "../postform/PostForm";
 
 const PostList = ({users, hearts}) => {
 
-
 	return (
 		<div className='main-content'>
 			{users.map((user) => 

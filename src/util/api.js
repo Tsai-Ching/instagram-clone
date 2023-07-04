@@ -50,7 +50,7 @@ export const getUsers = async () => {
   ];
 };
 
-export const createUser = async (postContent, photoURL, text, parentId = null) => {
+export const createUser = async (text, parentId = null, postContent, photoURL) => {
   return {
     id: Math.random().toString(36).substr(2, 9),
     body: text,

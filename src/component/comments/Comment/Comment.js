@@ -16,7 +16,7 @@ const Comment = ({
 }) => {
 	const canReply = Boolean(currentUserId);
 	const canEdit = currentUserId === comment.userId;
-	const canDelete = currentUserId === comment.userId;
+	const canDelete = currentUserId == comment.userId;
 	const createdAt = new Date(comment.createdAt).toLocaleDateString();
 	const isReplying = activeComment && activeComment.id === comment.id && activeComment.type === 'replying';
 	const isEditing = activeComment && activeComment.id === comment.id && activeComment.type === 'editing';
@@ -38,7 +38,12 @@ const Comment = ({
 		var day_start = new Date(createdAt);
 		var day_now = new Date();
 		var total_days = (day_now - day_start) / (1000 * 60 * 60 * 24);
-		replyDayRef.current.innerHTML = Math.round(total_days) + '天';
+		var total_weeks = (day_now - day_start) / (1000 * 60 * 60 * 24 * 7);
+		if (total_weeks < 1) {
+			replyDayRef.current.innerHTML = Math.round(total_days) + '天';
+		} else {
+			replyDayRef.current.innerHTML = Math.round(total_weeks) + '週';
+		}
 	}, [])
 
 	return (
@@ -49,16 +54,7 @@ const Comment = ({
 			<div className='comment-right-area'>
 				<div className='comment-content'>
 					<Link to={'/mainpage/' + comment.username}><div className='comment-author ml3'>{comment.username}</div></Link>
-					{!isEditing && <div className='comment-text'>{comment.body}</div>}
-					{isEditing && (
-						<CommentForm 
-							submitLabel='修改'
-							hasCancelButton
-							initialText = {comment.body}
-							handleCancel = {() => {setActiveComment(null)}}
-							handleSubmit = {(text) => updateComment(text, comment.id)}
-						/>
-					)}
+					<div className='comment-text'>{comment.body}</div>
 				</div>
 				<div className='comment-actions'>
 					<div className='ml3' ref={replyDayRef}></div>
@@ -72,16 +68,7 @@ const Comment = ({
 							回覆
 						</div>
 					)}
-					{canEdit && (
-						<div 
-							className='comment-action'
-							onClick ={() => 
-								setActiveComment({id: comment.id, type: 'editing'})
-							}
-						>
-							編輯
-						</div>
-					)}
+
 					{canDelete && <div className='comment-action' onClick={() => deleteComment(comment.id)}>刪除</div>}
 				</div>
 				{isReplying && (
