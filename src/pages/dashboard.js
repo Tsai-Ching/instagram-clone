@@ -23,7 +23,7 @@ const Dashboard = (props) => {
 	return (
 		<div>
 			<PostList users={props.users} />
-			<NavBar users={props.users} handleSubmit={props.handleSubmit} />
+			<NavBar users={props.users} setUsers={props.setUsers} handleSubmit={props.handleSubmit} />
 		</div>
 	)
 }

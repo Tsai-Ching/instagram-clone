@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import PostForm from '../PostForm/PostForm'
 
-const NavBar = ({users, searchclick, handleSubmit}) => {
+const NavBar = ({users, searchclick, setUsers}) => {
 	const [searchfield, setSearchfield] = useState('')
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -55,7 +55,7 @@ const NavBar = ({users, searchclick, handleSubmit}) => {
 				<Modal.Header closeButton className='modal-header'>
 				</Modal.Header>
 				<Modal.Body className="show-grid bg-transparent center" >
-					<PostForm className="center" onHide={handleClose} handleSubmit={handleSubmit} />
+					<PostForm className="center" onHide={handleClose} users={users} setUsers={setUsers} />
 				</Modal.Body>
 			</Modal>
 

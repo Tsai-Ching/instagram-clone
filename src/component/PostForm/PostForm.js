@@ -1,7 +1,8 @@
 import React, {useState, useRef} from "react";
 import "./PostForm.css";
+import {createData as createDataApi} from "../../util/api";
 
-const PostForm = ( {handleSubmit, onHide} ) => {
+const PostForm = ( { setUsers, onHide, users} ) => {
 
 	const inputRef = useRef(null);
 	const outputRef = useRef(null);
@@ -11,21 +12,31 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 	const onChange = (event) => {
     	const files = inputRef.current.files
     	setPhotoURL(URL.createObjectURL(event.target.files[0]))
+    	console.log(event.target.files[0])
     	for (let i = 0; i < files.length; i++) {
 			imagesArray.push(files[i])
 		}
 		displayImages()
     }
 	const onDrop = (e) => {
+		console.log(e);
+    	console.log(e.dataTransfer.files[0])
 		e.preventDefault()
-	  	const files = e.dataTransfer.files
+		e.stopPropagation(); 
+		console.log('work')
+		console.log(e.dataTransfer.filelist)
+		const files = e.dataTransfer.files
 	  	for (let i = 0; i < files.length; i++) {
 		    if (!files[i].type.match("image")) continue
 
 		    if (imagesArray.every(image => image.name !== files[i].name))
 		      imagesArray.push(files[i])
-		};
+		}
 		displayImages();
+	}
+
+	const dragover_handler = (ev) => {
+	    ev.preventDefault();
 	}
 
     function displayImages() {
@@ -44,6 +55,12 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 	  displayImages()
 	}
 
+	const addPost = (postContent, photoURL) => {
+		createDataApi(postContent, photoURL).then((user) => {
+			setUsers([user, ...users]);
+		});
+	};
+
 	const [postContent, setPostContent] =useState('');
 	const [photoURL, setPhotoURL] =useState('');
 	const onSubmit = (e) => {
@@ -52,7 +69,7 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 		    alert("請選擇檔案");
 		    return false;
 		}
-		handleSubmit(postContent,photoURL);
+		addPost(postContent,photoURL);
 		setPostContent('')
 		onHide()
 	}
@@ -79,8 +96,8 @@ const PostForm = ( {handleSubmit, onHide} ) => {
 			  		<button className='tr pa2 flex b'>分享</button>
 			  	</header>
 			</div>
-		  	<div className='row w-100 ma0 down-area'>
-		  		<div class='col-md-6 h-100 br b--gray flex tc input-div' ref={inputDivRef} onChange={onDrop} >
+		  	<div className='row w-100 ma0 down-area' >
+		  		<div class='col-md-6 h-100 br b--gray flex tc input-div' onDrop={onDrop} draggable="true" onDragOver={dragover_handler}>
 		  			<div class="add-image">
 		  				<i class="fa-regular fa-image fa-5x"></i>
 		  				<h1>將相片拖曳到這裡</h1>

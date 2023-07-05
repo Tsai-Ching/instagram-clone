@@ -97,18 +97,28 @@ export const createComment = async (text, parentId, replyId=null) => {
   };
 };
 
-export const createData = async (postContent, photoURL, text, parentId = null) => {
+export const createReply = async (text, parentId, replyId) => {
   return {
     id: Math.random().toString(36).substr(2, 9),
     body: text,
     username: "Emma",
     userId: "1",
     parentId,
+    replyId,
     createdAt: new Date().toISOString(),
-    userImage:"https://media.istockphoto.com/id/482680318/photo/excited-selfies-with-her-feline-friend.jpg?s=612x612&w=0&k=20&c=Nej-upSvphHwH9yEHJOFJTwn5xkYLdizUI1gTItqt0U=",
-    post: postContent,
-    photo: photoURL
+    userImage:"https://media.istockphoto.com/id/482680318/photo/excited-selfies-with-her-feline-friend.jpg?s=612x612&w=0&k=20&c=Nej-upSvphHwH9yEHJOFJTwn5xkYLdizUI1gTItqt0U="
   };
+};
+
+export const createData = async (postContent, photoURL) => {
+  return {
+    id: Math.random().toString(36).substr(2, 9),
+    body: postContent,
+    username: "Emma",
+    parentId: null,
+    userImage:"https://media.istockphoto.com/id/482680318/photo/excited-selfies-with-her-feline-friend.jpg?s=612x612&w=0&k=20&c=Nej-upSvphHwH9yEHJOFJTwn5xkYLdizUI1gTItqt0U=",
+    photo: photoURL
+  }
 };
 
 export const updateData = async (text) => {
