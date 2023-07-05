@@ -1,27 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import { useLoggedInUser } from "../util/localStorage";
-import { Link, useNavigate } from "react-router-dom";
-import Logout from './Logout';
-import PostList from "../component/post/PostList/PostList";
-import NavBar from "../component/NavBar/NavBar";
+import { useLoginUser } from "../util/localStorage";
+import { useNavigate } from "react-router-dom";
+import PostList from "../component/post/PostList";
+import NavBar from "../component/navBar/NavBar";
 
 const Dashboard = (props) => {
-	const [loggedInUsername, isLoggedIn] = useLoggedInUser()
+	const [loginUsername, isLogin] = useLoginUser()
 	const navigate = useNavigate();	
-
-  	const [hearts, setHearts] = useState(0);
-
-	const heartClick = (event) => {
-		setHearts(hearts += 1)
-	}
   
 	useEffect(() => {
-		if(isLoggedIn === 'no') {
+		if(isLogin === 'no') {
 				navigate("/login")
 			};
-		},[isLoggedIn])
+		},[isLogin])
 
-	if(isLoggedIn === 'unknown') {
+	if(isLogin === 'unknown') {
 		return (
 			<h1>Loading...</h1>
 		)
@@ -29,8 +22,8 @@ const Dashboard = (props) => {
 
 	return (
 		<div>
-			<PostList hearts={hearts} users={props.users}/>
-			<NavBar users={props.users} handleSubmit={props.handleSubmit}/>
+			<PostList users={props.users} />
+			<NavBar users={props.users} handleSubmit={props.handleSubmit} />
 		</div>
 	)
 }

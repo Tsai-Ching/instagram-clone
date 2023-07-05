@@ -1,20 +1,8 @@
-.container {
+.register-container {
   	background-color: white;
     min-width: 100%;
     height: 100vh;
     margin: auto;
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  align-items: center;
-}
-
-.flex-item {
-  text-decoration: none;
-  color: gray;
 }
 
 .register-form-container {
@@ -25,6 +13,7 @@
   border: 1px solid gray;
 }
 
+/* Responsive setting */
 .register-image {
 	width: 450px;
   display: block;
@@ -53,4 +42,17 @@
   .description {
     display: none;
   }
+}
+
+/* Footer */
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.flex-item {
+  text-decoration: none;
+  color: gray;
 }

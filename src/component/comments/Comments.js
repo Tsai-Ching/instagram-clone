@@ -1,31 +1,33 @@
 import React, {useState, useEffect} from "react";
 import Comment from "./Comment/Comment";
 import {
-	getUsers as getUsersApi,
-	createUser as createUserApi,
-	deleteUser as deleteUserApi,
-	updateUser as updateUserApi
+	getComments as getUsersApi,
+	createComment as createUserApi,
+	deleteData as deleteUserApi
 } from "../../util/api";
 import CommentForm from "./CommentForm/CommentForm";
 
 
-const Comments = () => {
+const Comments = ({ user }) => {
+	//儲存抓取到的評論資料
 	const [backendComments, setBackendComments] = useState([])
-	const [activeComment, setActiveComment] = useState(null)
+
+	//挑出第一層評論（直接回覆貼文的評論）
 	const rootComments = backendComments.filter((backendComment) =>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-		backendComment.parentId === null);
-	const getReplies = (commentId) => 
-		backendComments.filter((backendComment) => 
-			backendComment.parentId === commentId
-		).sort((a, b) => 
-			new Date(a.createdAt).getTime() -  new Date(b.createdAt).getTime()
-		);
-	const addComment = (text, parentId) => {
-		createUserApi(text, parentId).then((comment) => {
+		backendComment.parentId === user.id && backendComment.replyId === null
+	)
+
+	//新增回覆 刪除回覆
+	const [activeComment, setActiveComment] = useState(null)
+
+	const addComment = (text, parentId = user.id, replyId) => {
+		createUserApi(text, parentId, replyId).then((comment) => {
 			setBackendComments([comment, ...backendComments]);
 			setActiveComment(null);
 		});
+		console.log(backendComments)
 	};
+
 	const deleteComment = (commentId) => {
 		if(window.confirm('確定刪除？')) {                                                                      
 			deleteUserApi().then(() => {
@@ -36,24 +38,22 @@ const Comments = () => {
 			})
 		}
 	}
-	const updateComment = (text, commentId) => {
-		updateUserApi(text).then(() => {
-			const updatedBackendComments = backendComments.map((backendComment) => {
-				if(backendComment.id === commentId) {
-					return {...backendComment, body: text};
-				}
-				return backendComment;
-			});
-			setBackendComments(updatedBackendComments);
-			setActiveComment(null);
-		});
-	};
+
+	//挑出第二層評論（回覆評論的評論）
+	const getReplies = (commentId) => 
+		backendComments.filter((backendComment) => 
+			backendComment.replyId === commentId 
+		).sort((a, b) => 
+			new Date(a.createdAt).getTime() -  new Date(b.createdAt).getTime()
+		);
+
+	//抓取資料庫中評論資料
 	useEffect(() => {
 		getUsersApi().then((data) => {
 			setBackendComments(data)
-			console.log(backendComments)
 		})
 	},[])
+
 	return (
 		<div className='comments'>
 			<div className='comments-container'>
@@ -63,11 +63,11 @@ const Comments = () => {
 					comment={rootComment} 
 					replies={getReplies(rootComment.id)} 
 					currentUserId= '1'
-					deleteComment={deleteComment}
 					activeComment={activeComment}
 					setActiveComment={setActiveComment}
-					updateComment={updateComment}
+					deleteComment={deleteComment}
 					addComment={addComment}
+					parentId={user.id}
 				/>
 			)}
 			</div>

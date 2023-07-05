@@ -5,11 +5,11 @@ import { HouseDoorFill } from "react-bootstrap-icons";
 import { PlusSquare } from "react-bootstrap-icons";
 import { BoxArrowLeft } from "react-bootstrap-icons";
 import 'animate.css';
-import SearchResult from '..//SearchResult/SearchResult';
+import SearchResult from '../SearchResult/SearchResult';
 import SearchBox from '../SearchBox';
 import { Link } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
-import PostForm from '../post/postform/PostForm'
+import PostForm from '../PostForm/PostForm'
 
 const NavBar = ({users, searchclick, handleSubmit}) => {
 	const [searchfield, setSearchfield] = useState('')
@@ -39,12 +39,12 @@ const NavBar = ({users, searchclick, handleSubmit}) => {
   	const searchRef2 = useRef('');
 
   	useEffect(() => {
-  		let handler = (e) => {
+  		let SearchHandler = (e) => {
   			if(!searchRef1.current.contains(e.target) && !searchRef2.current.contains(e.target)) { 
   				setIsOpen(false);
   			}
   		};
-  		window.addEventListener('mousedown', handler)
+  		window.addEventListener('mousedown', SearchHandler)
   		//return () => document.body.removeEventListener('mousedown', closeDropdown)
   	}, [])
 
@@ -117,7 +117,6 @@ const NavBar = ({users, searchclick, handleSubmit}) => {
 								<h2 id="search-header" className="white mv2">搜尋</h2>
 								<div className='mh3 mb3'>
 									<div className="flex pv1 ph3 bg-dark-gray silver br3">
-										<Search size={16} className="self-center mr2 moon-gray" />
 										<SearchBox searchChange={onSearchChange} />
 									</div>
 								</div>

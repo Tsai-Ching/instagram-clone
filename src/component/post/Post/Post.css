@@ -1,48 +1,8 @@
-.modal-header {
-    border-bottom: 0 none;
-    float: right;
-}
-/*
-.modal {
-	background-color: transparent;
-	margin: 0;
-	display: flex;
-	align-items: center;
-	width: 1000px;
-}
-
-.modal-dialog {
-	background-color: transparent;
-	margin: 0;
-	display: flex;
-	align-items: center;
-	width: 1000px;
-}
-*/
-.modal-content {
-	background-color: black;
-	margin-left: auto;
-    margin-right: auto;
-}
-
-.main-modal {
-	margin-left: auto;
-    margin-right: auto;
-	min-width: 80%;
-
-}
-#postimg {
-  width: 100%;
-}
-
-body {
-	background-color: black;
-}
-
 .post-container {
-	max-width: 470px;
+  max-width: 470px;
 }
 
+/* user頭像 */
 div.user-img {
    width: 2rem;
    height: 2rem;
@@ -58,17 +18,41 @@ div.user-img img{
    object-fit: cover;
 }
 
-.square {
-	content: "";
-  	display: block;
-	padding-bottom: 100%;
-	position: relative;
+/* po文照片 */
+.post-img {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+  position: relative;
 }
 
-.square img {
+.post-img img {
   position: absolute;
   width: 100%;
   height: 100%;
   right: 0;
   left: 0;
+}
+
+/* 貼文框 */
+.modal-header {
+  border-bottom: 0 none;
+  float: right;
+}
+
+.modal-content {
+	background-color: black;
+	margin-left: auto;
+  margin-right: auto;
+}
+
+.main-modal {
+	margin-left: auto;
+  margin-right: auto;
+	min-width: 80%;
+}
+
+/* 點讚 */
+.clicked {
+  color: red;
 }

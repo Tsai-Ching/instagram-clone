@@ -20,8 +20,8 @@ const Login = () => {
 		};
 	}
 	return (
-		<div>
-			<main className='container flex flex-row justify-center items-center'>
+		<div className='login-container'>
+			<main className='flex flex-row justify-center items-center'>
 				<div className="signin-image">
 					<img src={pic} className="pa4" style={{ width:'100%', height:'auto' }}/>
 				</div>
@@ -34,12 +34,12 @@ const Login = () => {
 					    	<div className="input-area">
 					      		<div class="mt3 tc">
 						        	<input class="pa2 input-reset ba bg-transparent hover-bg-black w-80" 
-						        	value={username}
-						        	type='text' 
-						        	name="username" 
-						        	placeholder='用戶名稱' 
-						        	id="username" 
-						        	onChange= {e=>setUsername(e.target.value)}
+							        	value={username}
+							        	type='text' 
+							        	name="username" 
+							        	placeholder='用戶名稱' 
+							        	id="username" 
+							        	onChange= {e=>setUsername(e.target.value)}
 						        	/>
 						      	</div>
 							    <div class="mt3 tc">
@@ -61,7 +61,7 @@ const Login = () => {
 					    </fieldset>
 					</form>
 
-				    <div className="ba b--gray center mt4 nav-to-register">
+				    <div className="ba b--gray mt4 nav-to-register">
 					    <div className="f6 link dim black db">沒有帳號嗎？<span><Link to='/register' className='b'>註冊</Link></span></div>
 					</div>
 				</div>

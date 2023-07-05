@@ -21,7 +21,7 @@ const Register = () => {
 		};
 	}
 	return (
-		<div>
+		<div className='register-container'>
 			<main className='container flex flex-row justify-center items-center'>
 				<div className="register-image">
 					<img src={pic} className="pa4" style={{ width:'100%', height:'auto' }}/>

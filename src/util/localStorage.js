@@ -1,27 +1,33 @@
 import {useState, useEffect} from 'react';
 
 //提供key做validation和提取user資料
-const USER_DB_KEY = 'my-user-key'
+const USER_DB_KEY = 'my-user-key' 
 const AUTH_USER_KEY = 'my-authenticated-key'
 
+
+//登出
 export const logoutUser = () => {
 	localStorage.removeItem(AUTH_USER_KEY)
 }
-export const useLoggedInUser = () => {
-	const [loggedInUsername, setloggedInUsername] = useState('');
-	const [isLoggedIn, setisLoggedIn] = useState('unknown');
+
+//登入提取使用者名稱
+export const useLoginUser = () => {
+	const [loginUsername, setLoginUsername] = useState('');
+	const [isLogin, setIsLogin] = useState('unknown');
 
 	useEffect (() => {
 		const username = localStorage.getItem(AUTH_USER_KEY)
 		if (username) {
-			setloggedInUsername(username)
-			setisLoggedIn('yes')
+			setLoginUsername(username)
+			setIsLogin('yes')
 		} else {
-			setisLoggedIn('no')
+			setIsLogin('no')
 		}
 	}, [])
-	return [loggedInUsername, isLoggedIn]
+	return [loginUsername, isLogin]
 }
+
+//登入認證
 export const loginUser = ({username, password}) => {
 	let userData = localStorage.getItem(USER_DB_KEY)
 	//1. 檢查是否有userkey 沒有註冊過就不會有資料
@@ -31,13 +37,11 @@ export const loginUser = ({username, password}) => {
 			error: '無效的登錄憑證'
 		}
 	}
-	const userArray = JSON.parse(userData)
+	const userArray = JSON.parse(userData) //印出陣列資料
 
 	const user = userArray.find(user => user.username === username && user.password === password)
 
-	//1. 尋找是否有此user
 	if(user) {
-		//ok
 		localStorage.setItem(AUTH_USER_KEY, username);
 		return {
 			status: 'ok'
@@ -50,10 +54,7 @@ export const loginUser = ({username, password}) => {
 	};
 }
 
-/**
-* return {status: ture} if user is create
-* return {status: faulse, error: 'message'} if there is an error
-*/
+//註冊
 export const createUser = ({username, password}) => {
 	let userData = localStorage.getItem(USER_DB_KEY)
 	//1. 檢查是否有userkey 沒有註冊過就不會有資料
@@ -87,5 +88,4 @@ export const createUser = ({username, password}) => {
 	localStorage.setItem(USER_DB_KEY, JSON.stringify(userArray));
 
 	return {status: 'ok'};
-
 }

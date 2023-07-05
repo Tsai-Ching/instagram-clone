@@ -1,29 +1,31 @@
-import React, {Component,useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import './App.css';
-import {Routes, Route, useParams} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard';
 import Logout from './pages/Logout';
 import MainPage from './component/mainpage/MainPage';
-import PostList from "./component/post/PostList/PostList";
-import {getUsers as getUsersApi,
-		createUser as createUserApi
+import PostList from "./component/post/PostList";
+import {
+	getPosts as getDataApi,
+	createData as createDataApi,
+	deleteData as deleteDataApi,
+	updateData as updateDataApi
 } from "./util/api";
-import Layout from './Layout';
+
 
 const App = () => {
-	let {username} = useParams();
 	const [users, setUsers] = useState([])
 
-	const addUser = (postContent, photoURL) => {
-		createUserApi(postContent, photoURL).then((user) => {
+	const addPost = (postContent, photoURL) => {
+		createDataApi(postContent, photoURL).then((user) => {
 			setUsers([user, ...users]);
 		});
 	};
 
 	useEffect(() => {
-		getUsersApi().then((data) => {
+		getDataApi().then((data) => {
 			setUsers(data)
 		})
 	},[])
@@ -32,9 +34,9 @@ const App = () => {
 		<div>
 			<Routes>
 				<Route path='/' element={<Register/>} />
-				<Route path='/register' element={<Layout backgroundColor="#fff"><Register/></Layout>} />
+				<Route path='/register' element={<Register/>} />
 				<Route path='/login' element={<Login/>} />
-				<Route path='/dashboard' element={<Dashboard users={users} handleSubmit={addUser} />} />
+				<Route path='/dashboard' element={<Dashboard users={users} handleSubmit={addPost} />} />
 				<Route path='/logout' element={<Logout/>} />
 				<Route path='/postlist' element={<PostList />} />
 				<Route path="/mainpage/:username" element={<MainPage users={users} />} />

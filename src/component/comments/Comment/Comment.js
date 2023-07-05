@@ -11,8 +11,8 @@ const Comment = ({
 	activeComment, 
 	setActiveComment, 
 	addComment,
-	updateComment,
-	parentId = null
+	parentId,
+	replyId = null
 }) => {
 	const canReply = Boolean(currentUserId);
 	const canEdit = currentUserId === comment.userId;
@@ -20,7 +20,7 @@ const Comment = ({
 	const createdAt = new Date(comment.createdAt).toLocaleDateString();
 	const isReplying = activeComment && activeComment.id === comment.id && activeComment.type === 'replying';
 	const isEditing = activeComment && activeComment.id === comment.id && activeComment.type === 'editing';
-	const replyId = parentId ? parentId : comment.id;
+	const commentId = replyId ? replyId : comment.id;
 
 	const replyRef = useRef();
 	const replyDayRef = useRef();
@@ -74,7 +74,7 @@ const Comment = ({
 				{isReplying && (
 					<CommentForm
 						submitLabel='回覆'
-						handleSubmit = {(text) => addComment(text, replyId)}
+						handleSubmit = {(text) => addComment(text, parentId, commentId)}
 					/>
 				)}
 
@@ -90,10 +90,10 @@ const Comment = ({
 								currentUserId='1' 
 								deleteComment={deleteComment} 
 								addComment={addComment}
-								parentId={comment.id} 
+								parentId={parentId}
+								replyId={comment.id} 
 								activeComment={activeComment}
 								setActiveComment={setActiveComment}
-								updateComment={updateComment}
 							/>)
 						)}
 					</div>

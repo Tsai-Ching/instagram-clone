@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import './MainPage.css'
-import GalleryItem from './GalleryItem'
+import GalleryItem from '../GalleryItem'
 import {useParams} from 'react-router-dom';
-import NavBar from '../NavBar/NavBar'
+import NavBar from '../navBar/NavBar'
 
 const MainPage = (props) => {
 	let {username} = useParams();

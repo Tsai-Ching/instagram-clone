@@ -1,3 +1,9 @@
+.login-container {
+  background-color: white;
+  min-width: 100%;
+  min-height: 100vh;
+}
+
 input {
   color: black;
   border-radius: 3px;
@@ -18,11 +24,43 @@ input {
 	border-color: gray;
 }
 
-.container {
-  	background-color: white;
-    min-width: 100%;
-    min-height: 100%;
-    margin: auto;
+.signin-form-container {
+	width: 450px;
+}
+
+/* Responsive setting */
+.signin-image {
+	width: 450px;
+	display: block;
+}
+
+@media screen and (min-width:375px) { 
+	.signin-form-container {
+		width: 450px;
+	}
+}
+@media (max-width: 900px) {
+  .signin-image {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .signin-form {
+    border: none;
+  }
+}
+@media (max-width: 375px) {
+  .signin-form-container {
+    width: 100%;
+  }
+  .description {
+    display: none;
+  }
+}
+
+/* Footer */
+footer {
+	background-color: white;
 }
 
 .flex-container {
@@ -35,46 +73,4 @@ input {
 .flex-item {
   text-decoration: none;
   color: gray;
-}
-
-.signin-form-container {
-	width: 450px;
-}
-
-.signin-form {
-  border: 1px solid gray;
-}
-
-.signin-image {
-	width: 450px;
-	display: block;
-}
-@media screen and (min-width:375px) { 
-	.signin-form-container {
-		width: 450px;
-	}
-}
-@media (max-width: 900px) {
-  .signin-image {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .signin-form {
-    border: none;
-  }
-}
-
-@media (max-width: 375px) {
-  .signin-form-container {
-    width: 100%;
-  }
-  .description {
-    display: none;
-  }
-}
-
-footer {
-	background-color: white;
 }
