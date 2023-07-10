@@ -1,20 +1,26 @@
-# Getting Started with Create React App
+# Instagram-clone (frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a Instagram front-end clone build with React.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+This project is to practice frontend skills. List of technologies used and its functionalities:
 
-### `npm start`
+*Building RWD web-page with CSS media query and grid system.
+*Using Create React App to create an interface that colons Instagram appearance through modularizing different functional components.
+*Implement different functionalities of Instagram using the appropriate React Hooks.
+*Implement registration & login using local storage.
+*Wrote an API to mimic the responses of the backend server.
+*Using functional CSS - tachyons to quickly build and design UI without writing CSS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installation and Execution
+
+Access the project by visiting https://smart-painter.onrender.com in a web browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+### Functionality Showcase
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
