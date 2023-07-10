@@ -1,15 +1,19 @@
-import React from "react";
-import Post from "./Post/Post";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Post from './Post/Post';
 
-
-const PostList = ({ users }) => {
-	return (
-		<div className='main-content'>
-			{users.map((user) => 
-				<Post key={user.id} user={user} />
-			)}
-		</div>
-	);
+function PostList({ users }) {
+    return (
+        <div className="main-content">
+            {users.map((user) => (
+                <Post key={user.id} user={user} />
+            ))}
+        </div>
+    );
 }
+
+PostList.propTypes = {
+    users: PropTypes.array,
+};
 
 export default PostList;

@@ -1,24 +1,44 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const GalleryItem = ({user}) => {
-	return(
-		<div class="gallery-item" tabindex="0">
-			<div className='aspect-ratio--1x1 db relative'>
-				<img 
-					src={user.photo} 
-					class="gallery-image db " 
-					alt="" 
-					style={{width: '100%', objectFit: 'cover', position: 'absolute', height: '100%'}}
-				/>
-				<div class="gallery-item-info">
-					<ul>
-						<li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 56</li>
-						<li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	);
+function GalleryItem({ user }) {
+    return (
+        <div className="gallery-item">
+            <div className="aspect-ratio--1x1 db relative">
+                <img
+                    src={user.photo}
+                    className="gallery-image db "
+                    alt=""
+                    style={{
+                        width: '100%',
+                        objectFit: 'cover',
+                        position: 'absolute',
+                        height: '100%',
+                    }}
+                />
+                <div className="gallery-item-info">
+                    <ul>
+                        <li className="gallery-item-likes">
+                            <span className="visually-hidden">Likes:</span>
+                            <i className="fas fa-heart" aria-hidden="true" /> 56
+                        </li>
+                        <li className="gallery-item-comments">
+                            <span className="visually-hidden">Comments:</span>
+                            <i
+                                className="fas fa-comment"
+                                aria-hidden="true"
+                            />{' '}
+                            2
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    );
 }
 
-export default GalleryItem
+GalleryItem.propTypes = {
+    user: PropTypes.object,
+};
+
+export default GalleryItem;

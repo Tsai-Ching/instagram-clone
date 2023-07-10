@@ -1,12 +1,13 @@
-import React from "react";
-import "./Scroll.css";
+import React from 'react';
+import './Scroll.css';
+import PropTypes from 'prop-types';
 
-const Scroll = (props) => {
-	return (
-		<div className='scroll'>
-			{props.children}
-		</div>
-	);
+function Scroll({ children }) {
+    return <div className="scroll">{children}</div>;
 }
+
+Scroll.propTypes = {
+    children: PropTypes.node,
+};
 
 export default Scroll;
