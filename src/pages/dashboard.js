@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useLoginUser } from '../util/localStorage';
 import PostList from '../component/post/PostList';
-import NavBar from '../component/navBar/NavBar';
+import NavBar from '../component/navbar/NavBar';
 
 function Dashboard({ users, setUsers }) {
     const [isLogin] = useLoginUser();

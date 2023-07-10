@@ -3,7 +3,7 @@ import React from 'react';
 import './MainPage.css';
 import { useParams } from 'react-router-dom';
 import GalleryItem from '../../component/GalleryItem';
-import NavBar from '../../component/navBar/NavBar';
+import NavBar from '../../component/navbar/NavBar';
 
 function MainPage({ users }) {
     const { username } = useParams();
