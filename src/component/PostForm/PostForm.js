@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './PostForm.css';
