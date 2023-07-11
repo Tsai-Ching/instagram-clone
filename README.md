@@ -22,11 +22,11 @@ You may also see any lint errors in the console.
 
 ### Functionality Showcase
 
-https://user-images.githubusercontent.com/108188981/252555645-adadbc0d-1e04-4e4a-90d5-7e0f92eea7e6.gif
+![Demo] (https://user-images.githubusercontent.com/108188981/252555645-adadbc0d-1e04-4e4a-90d5-7e0f92eea7e6.gif)
 
-https://user-images.githubusercontent.com/108188981/252556193-6490bbd9-ac7f-4bcf-af65-6404a40e34cc.gif
+![Demo] (https://user-images.githubusercontent.com/108188981/252556193-6490bbd9-ac7f-4bcf-af65-6404a40e34cc.gif)
 
-https://user-images.githubusercontent.com/108188981/252556310-b0d96d6e-8b09-478b-b136-79c8460fa818.gif
+![Demo] (https://user-images.githubusercontent.com/108188981/252556310-b0d96d6e-8b09-478b-b136-79c8460fa818.gif)
 
 ### `npm run build`
 
