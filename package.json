@@ -34,12 +34,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
-  "eslintConfig": {
-    "extends": [
-      "wesbos",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -56,15 +50,6 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@faker-js/faker": "^8.0.2",
     "@svgr/core": "^8.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "eslint": "^8.44.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-prettier": "^5.0.0-alpha.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.32.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "webpack": "^5.88.1"
   }
 }
