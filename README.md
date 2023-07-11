@@ -17,7 +17,7 @@ This project is to practice frontend skills. List of technologies used and its f
 
 Access the project by visiting https://instagram-clone-ytem.onrender.com in a web browser.
 
-The page will reload when you make changes.\
+The page will reload when you make changes.
 
 ### Demo
 
