@@ -22,7 +22,7 @@ const Comment = ({
         activeComment &&
         activeComment.id === comment.id &&
         activeComment.type === 'replying';
-    const commentId = replyId;
+    const commentId = replyId ? replyId : comment.id;
 
     const replyRef = useRef();
     const replyDayRef = useRef();
@@ -114,6 +114,9 @@ const Comment = ({
                         <div
                             className="show-reply ml3"
                             onClick={ToggleShow}
+                            role="button"
+                            onKeyDown={ToggleShow}
+                            tabIndex={0}
                         >
                             - 查看回覆
                         </div>

@@ -22,11 +22,12 @@ function Comments({ user }) {
     // 新增回覆 刪除回覆
     const [activeComment, setActiveComment] = useState(null);
 
-    const addComment = (text, replyId, parentId = user.id) => {
-        createUserApi(text, replyId, parentId).then((comment) => {
+    const addComment = (text, parentId = user.id, replyId) => {
+        createUserApi(text, parentId, replyId).then((comment) => {
             setBackendComments([comment, ...backendComments]);
             setActiveComment(null);
         });
+        console.log(backendComments)
     };
 
     const deleteComment = (commentId) => {

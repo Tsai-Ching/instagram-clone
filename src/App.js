@@ -7,7 +7,7 @@ import Dashboard from './pages/dashboard';
 import Logout from './pages/Logout';
 import MainPage from './pages/mainpage/MainPage';
 import PostList from './component/post/PostList';
-import { getPosts as getDataApi } from './util/api';
+import { getPosts as getDataApi } from './util/api'; 
 
 function App() {
     const [users, setUsers] = useState([]);
