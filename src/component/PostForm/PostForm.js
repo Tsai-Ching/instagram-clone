@@ -44,9 +44,12 @@ function PostForm({ setUsers, onHide, users }) {
         imagesArray.forEach((image) => {
             images += `
                 <div className="image">
-	                <img src="${URL.createObjectURL(
-        image
-    )}" alt="image" className='choosed-image'>
+	                <img 
+                    src="${URL.createObjectURL(image)}" 
+                    alt="image" 
+                    className='choosed-image'
+                    style={{width: 'auto, objectFit: 'cover'}}
+                    >
 	            </div>
                 `;
         });
@@ -114,16 +117,15 @@ function PostForm({ setUsers, onHide, users }) {
                         </div>
                         <output ref={outputRef} />
                     </div>
-                    <div className="pa2 b--black-20 col-md-6 tl">
-                        <textarea
-                            value={postContent}
-                            className="white"
-                            onChange={(e) => {
-                                setPostContent(e.target.value);
-                            }}
-                            placeholder="撰寫說明文字......"
-                        />
-                    </div>
+                    <textarea 
+                        className="pa2 b--black-20 col-md-6 tl white" />
+                        value={postContent}
+                        onChange={(e) => {
+                            setPostContent(e.target.value);
+                        }}
+                        placeholder="撰寫說明文字......"
+
+                  
                 </div>
             </form>
         </section>
