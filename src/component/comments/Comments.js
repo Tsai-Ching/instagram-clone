@@ -23,7 +23,7 @@ function Comments({ user }) {
     const [activeComment, setActiveComment] = useState(null);
 
     const addComment = (text, replyId, parentId = user.id) => {
-        createUserApi(text, parentId, replyId).then((comment) => {
+        createUserApi(text, replyId, parentId).then((comment) => {
             setBackendComments([comment, ...backendComments]);
             setActiveComment(null);
         });
