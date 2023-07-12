@@ -48,7 +48,7 @@ function PostForm({ setUsers, onHide, users }) {
                     src="${URL.createObjectURL(image)}" 
                     alt="image" 
                     className='choosed-image'
-                    style={{width: 'auto, objectFit: 'cover'}}
+                    style={{width: 'auto', objectFit: 'cover'}}
                     >
 	            </div>
                 `;
