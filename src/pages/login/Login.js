@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../../util/localStorage';
 import './Login.css';
 import pic from '../../insta-pic.jpg';
-import Skeleton from 'react-loading-skeleton';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -24,16 +23,12 @@ function Login() {
         <div className="login-container">
             <main className="flex flex-row justify-center items-center">
                 <div className="signin-image">
-                    {loading ? (
-                        <Skeleton count={1} height={40} width={500} circle={false} />
-                    ) : (
-                        <img
+                    <img
                         alt=""
                         src={pic}
                         className="pa4"
                         style={{ width: '100%', height: 'auto' }}
-                        />
-                    )}
+                    />
                 </div>
                 <div className="pa4 black-80 signin-form-container">
                     <form

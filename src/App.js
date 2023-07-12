@@ -8,11 +8,9 @@ import Logout from './pages/Logout';
 import MainPage from './pages/mainpage/MainPage';
 import PostList from './component/post/PostList';
 import { getPosts as getDataApi } from './util/api';
-import "react-loading-skeleton/dist/skeleton.css";
 
 function App() {
     const [users, setUsers] = useState([]);
-    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         getDataApi().then((data) => {
@@ -23,8 +21,8 @@ function App() {
         <div>
             <Routes>
                 <Route path="/" element={<Register />} />
-                <Route path="/register" element={<Register loading={loading} />} />
-                <Route path="/login" element={<Login loading={loading} />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/login" element={<Login />} />
                 <Route
                     path="/dashboard"
                     element={<Dashboard users={users} setUsers={setUsers} />}
