@@ -114,9 +114,6 @@ const Comment = ({
                         <div
                             className="show-reply ml3"
                             onClick={ToggleShow}
-                            role="button"
-                            onKeyDown={ToggleShow}
-                            tabIndex={0}
                         >
                             - 查看回覆
                         </div>
