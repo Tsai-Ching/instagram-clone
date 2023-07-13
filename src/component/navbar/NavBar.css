@@ -157,3 +157,7 @@
 .close {
   display: none;
 }
+
+.modal-content {
+  background-color: transparent;
+}

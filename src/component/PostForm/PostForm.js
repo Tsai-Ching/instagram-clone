@@ -115,12 +115,13 @@ function PostForm({ setUsers, onHide, users }) {
                         <output ref={outputRef} />
                     </div>
                     <textarea 
-                        className="pa2 b--black-20 col-md-6 tl white" />
+                        className="pa2 b--black-20 col-md-6 tl white"
                         value={postContent}
                         onChange={(e) => {
                             setPostContent(e.target.value);
                         }}
                         placeholder="撰寫說明文字......"
+                    />
 
                   
                 </div>
