@@ -23,6 +23,8 @@ function PostForm({ setUsers, onHide, users }) {
         e.preventDefault();
         e.stopPropagation();
         const { files } = e.dataTransfer;
+        setPhotoURL(URL.createObjectURL(e.dataTransfer.files[0]))
+
         for (let i = 0; i < files.length; i += 1) {
             if (files[i].type.match('image')) {
                 if (
@@ -52,11 +54,6 @@ function PostForm({ setUsers, onHide, users }) {
         });
         outputRef.current.innerHTML = images;
         imagesArray = [];
-    }
-
-    function deleteImage(index) {
-        imagesArray.splice(index, 1);
-        displayImages();
     }
 
     const addPost = (content, URL) => {
@@ -107,6 +104,7 @@ function PostForm({ setUsers, onHide, users }) {
                         onDrop={onDrop}
                         draggable="true"
                         onDragOver={dragoverHandler}
+                        ref={inputRef}
                     >
                         <div className="add-image">
                             <i className="fa-regular fa-image fa-5x" />
