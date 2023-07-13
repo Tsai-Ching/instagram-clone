@@ -17,9 +17,9 @@ function PostForm({ setUsers, onHide, users }) {
         }
         displayImages();
     };
+
+    //拖曳上傳
     const onDrop = (e) => {
-        console.log(e);
-        console.log(e.dataTransfer.files[0]);
         e.preventDefault();
         e.stopPropagation();
         const { files } = e.dataTransfer;
@@ -43,14 +43,11 @@ function PostForm({ setUsers, onHide, users }) {
         let images = '';
         imagesArray.forEach((image) => {
             images += `
-                <div className="image">
 	                <img 
                     src="${URL.createObjectURL(image)}" 
                     alt="image" 
-                    className='choosed-image'
-                    style={{width: 'auto', objectFit: 'cover'}}
+                    className='image'
                     >
-	            </div>
                 `;
         });
         outputRef.current.innerHTML = images;
