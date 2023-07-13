@@ -5,14 +5,14 @@ import { useParams } from 'react-router-dom';
 import GalleryItem from '../../component/GalleryItem';
 import NavBar from '../../component/navbar/NavBar';
 
-function MainPage({ users }) {
+function MainPage({ users, setUsers }) {
     const { username } = useParams();
 
     const showUser = users.filter((user) => user.username === username);
 
     return (
         <div className="flex flex-row">
-            <NavBar users={users} />
+            <NavBar users={users} setUsers={setUsers} />
             <div className="mainpage-container">
                 <div className="mainpage-body flex flex-column">
                     <header className="db mainpage-header">

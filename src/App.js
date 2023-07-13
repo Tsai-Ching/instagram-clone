@@ -31,7 +31,7 @@ function App() {
                 <Route path="/postlist" element={<PostList />} />
                 <Route
                     path="/mainpage/:username"
-                    element={<MainPage users={users} />}
+                    element={<MainPage users={users} setUsers={setUsers} />}
                 />
                 <Route path="/logout" element={<Logout />} />
             </Routes>
