@@ -40,16 +40,8 @@ div.user-img img{
   float: right;
 }
 
-.modal-content {
-	background-color: black;
-	margin-left: auto;
-  margin-right: auto;
-}
-
 .main-modal {
-	margin-left: auto;
-  margin-right: auto;
-	min-width: 80%;
+	min-width: 100%;
 }
 
 /* 點讚 */

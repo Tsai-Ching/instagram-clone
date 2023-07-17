@@ -4,8 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import './Post.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Comments from '../../comments/Comments';
-import Scroll from '../../scroll/Scroll';
+import PostDetail from '../../PostDetail';
 
 function Post({ user }) {
     // 點讚 讚數統計
@@ -17,7 +16,6 @@ function Post({ user }) {
         if (!isClicked) {
             count.current += 1;
             setIsClicked(true);
-            console.log('clicked');
             refHeart.current.classList.add('clicked');
         } else {
             count.current -= 1;
@@ -88,57 +86,8 @@ function Post({ user }) {
                         onHide={handleClose}
                     >
                         <Modal.Header closeButton className="modal-header" />
-                        <Modal.Body className="show-grid bg-transparent">
-                            <div className="row">
-                                <div className="col">
-                                    <img
-                                        className="w-100 h-100"
-                                        alt="post"
-                                        src={user.photo}
-                                    />
-                                </div>
-                                <div className="col">
-                                    <div className="flex flex-row pa4 items-baseline">
-                                        <Link to={`/mainpage/${user.username}`}>
-                                            <div className="user-img">
-                                                <img
-                                                    alt="user"
-                                                    src={user.userImage}
-                                                />
-                                            </div>
-                                        </Link>
-                                        <h1 className="f6 f5-ns fw6 lh-title white mv0 ml3">
-                                            {user.username}{' '}
-                                        </h1>
-                                    </div>
-                                    <Scroll>
-                                        <div className="flex flex-row pa4 items-start bt bb b--dark-gray">
-                                            <Link
-                                                to={`/mainpage/${user.username}`}
-                                            >
-                                                <div className="user-img">
-                                                    <img
-                                                        alt="user"
-                                                        src={user.userImage}
-                                                    />
-                                                </div>
-                                            </Link>
-                                            <p className="white mb0 ml3">
-                                                {user.body}
-                                            </p>
-                                        </div>
-                                        <Comments
-                                            className="white"
-                                            user={user}
-                                        />
-                                    </Scroll>
-                                    <h5 className="white likes mh0 mb2 pt3">
-                                        {' '}
-                                        {count.current}
-                                        個讚
-                                    </h5>
-                                </div>
-                            </div>
+                        <Modal.Body className="show-grid bg-black" style={{width: '80%'}}>
+                            <PostDetail user={user} count={count} />
                         </Modal.Body>
                     </Modal>
                 </section>

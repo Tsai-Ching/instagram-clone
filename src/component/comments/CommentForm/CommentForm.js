@@ -5,7 +5,6 @@ import './CommentForm.css';
 function CommentForm({
     submitLabel,
     handleSubmit,
-    hasCancelButton = false,
     initialText = '',
     handleCancel,
 }) {
@@ -32,21 +31,22 @@ function CommentForm({
 
             <button
                 className="comment-form-button"
-                disable={isTextareaDisable}
+                disable={isTextareaDisable.toString()}
                 style={{ minWidth: '3rem' }}
                 type="submit"
             >
                 {submitLabel}
             </button>
-            {hasCancelButton && (
+   
                 <button
                     onClick={handleCancel}
                     type="button"
                     className="comment-form-button comment-form-cancel-button"
+                    style={{ minWidth: '3rem' }}
                 >
                     取消
                 </button>
-            )}
+
         </form>
     );
 }

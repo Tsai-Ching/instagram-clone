@@ -79,3 +79,10 @@
 .replies {
   margin-top: 20px;
 }
+
+.modal-body {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%)
+}

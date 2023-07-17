@@ -10,7 +10,7 @@ function PostForm({ setUsers, onHide, users }) {
     let imagesArray = [];
     // 手動上傳
     const onChange = (event) => {
-        const { files } = inputRef.current;
+        const { files } = event.target;
         setPhotoURL(URL.createObjectURL(event.target.files[0]));
         for (let i = 0; i < files.length; i += 1) {
             imagesArray.push(files[i]);

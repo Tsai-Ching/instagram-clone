@@ -42,7 +42,8 @@ function NavBar({ users, setUsers }) {
 
     useEffect(() => {
         const SearchHandler = (e) => {
-            if (
+            if (searchRef1.current &&
+                searchRef2.current &&
                 !searchRef1.current.contains(e.target) &&
                 !searchRef2.current.contains(e.target)
             ) {
@@ -56,8 +57,7 @@ function NavBar({ users, setUsers }) {
     return (
         <div>
             <Modal
-                dialog
-                className="main-modal"
+                dialogclassName="main-modal"
                 size="lg"
                 show={lgShow}
                 onHide={handleClose}

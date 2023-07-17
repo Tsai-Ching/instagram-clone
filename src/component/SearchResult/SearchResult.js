@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function SearchResult({ filterUsers }) {
     return (
         <div>
-            {filterUsers.map((user) => (
+            {filterUsers && filterUsers.map((user) => (
                 <div key={user.id}>
                     <Link to={`/mainpage/${user.username}`}>
                         <article

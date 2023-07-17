@@ -13,7 +13,7 @@ const Comment = ({
     setActiveComment,
     addComment,
     parentId,
-    replyId = null,
+    replyId = comment.id,
 }) => {
     const canReply = Boolean(currentUserId);
     const canDelete = currentUserId === comment.userId;
@@ -22,11 +22,16 @@ const Comment = ({
         activeComment &&
         activeComment.id === comment.id &&
         activeComment.type === 'replying';
-    const commentId = replyId ? replyId : comment.id;
+
 
     const replyRef = useRef();
     const replyDayRef = useRef();
 
+    const handleCancel = () => {
+        setActiveComment(null)
+    }
+
+    //  查看回覆的收合
     function ToggleShow() {
         const toggleReply = replyRef.current;
         if (toggleReply.style.display === 'none') {
@@ -104,8 +109,9 @@ const Comment = ({
                     <CommentForm
                         submitLabel="回覆"
                         handleSubmit={(text) =>
-                            addComment(text, parentId, commentId)
+                            addComment(text, parentId, replyId)
                         }
+                        handleCancel={handleCancel}
                     />
                 )}
 
@@ -148,7 +154,7 @@ Comment.propTypes = {
     replies: PropTypes.array,
     currentUserId: PropTypes.string,
     deleteComment: PropTypes.func,
-    activeComment: PropTypes.func,
+    activeComment: PropTypes.object,
     setActiveComment: PropTypes.func,
     addComment: PropTypes.func,
     parentId: PropTypes.string,

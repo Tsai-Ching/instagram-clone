@@ -27,7 +27,6 @@ function Comments({ user }) {
             setBackendComments([comment, ...backendComments]);
             setActiveComment(null);
         });
-        console.log(backendComments)
     };
 
     const deleteComment = (commentId) => {

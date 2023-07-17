@@ -18,11 +18,13 @@ function MainPage({ users, setUsers }) {
                     <header className="db mainpage-header">
                         <div className="profile">
                             <div className="profile-image">
-                                <img
-                                    src={showUser[0].userImage}
-                                    className="db"
-                                    alt=""
-                                />
+                                {showUser && (
+                                    <img
+                                        src={showUser[0].userImage}
+                                        className="db"
+                                        alt=""
+                                    />
+                                )}
                             </div>
                             <div className="profile-user-settings">
                                 <h1 className="profile-user-name ma0 v-mid">
