@@ -1,0 +1,163 @@
+.NavBar-container {
+  z-index: 1;
+  position: absolute;
+}
+
+.navbar {
+  position: fixed;
+	padding: 0;
+	margin: 0;
+	transition: width 200ms ease;
+  border-right: solid 1px #212121;
+  background: black;
+}
+
+
+.navbar-nav {
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-link {
+  width: 100%;
+  color: white;
+}
+
+.nav-link:last-child {
+  margin-top: auto;
+}
+
+.link-item {
+	text-decoration: none;
+	padding: 12px;
+	margin: 8px 0px;
+	height: 4rem;
+  color: white;
+	filter: grayscale(100%) opacity(0.7);
+  transition: 600ms;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.link-item:hover {
+  filter: grayscale(0%) opacity(1);
+  color: white;
+  background: gray;
+}
+
+.link-item svg {
+  pointer-events: none; 
+}
+
+.link-item img {
+	width: 24px;
+	height: 24px;
+  object-fit: cover;
+}
+
+/* Large screen */
+@media only screen and (min-width: 600px) {
+  .navbar {
+    height: 100vh;
+    width: 6rem;
+    top: 0;
+    border-right: solid 1px #212121;
+    justify-content: center; 
+  }
+
+  .navbar:hover {
+    width: 16rem;
+  }
+
+  .navbar-nav {
+    display: flex;  
+    flex-direction: column;
+  }
+
+  .link-text {
+    display: none;
+    font-size: 1.25rem;
+    pointer-events: none; 
+  }
+
+  .navbar:hover .link-text {
+    display: inline;
+  }
+
+  #searchbar {
+    width: 25rem;
+    height: 100vh;
+    top: 0;
+    border-right: solid 1px #212121;
+  }
+
+  #search-header {
+    padding: 12px 14px 36px 24px;
+    margin: -4px 0px -5px 0px;
+  }
+
+  #search-content {
+    border-top: solid 1px #212121;
+  }
+
+}
+
+/* Small screen */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    width: 100vh;
+    height: 6rem;
+    bottom: 0;
+    border-top: solid 1px #212121;
+  }
+
+  .navbar-nav {
+    display: flex;  
+    flex-direction: row;
+  }
+
+  .link-text {
+    display: none;
+  }
+
+  #searchbar {
+    width: 100vh;
+    height: 6rem;
+    top: 0;
+    display: flex;  
+    flex-direction: row;
+    border-bottom: solid 1px #212121;
+  }
+
+  #search-header {
+      display: none;
+  }
+
+  #search-content {
+    display: none;
+  }
+
+  .search-result {
+    position: absolute;
+    background: black;
+    top: 4rem;
+    width: 20rem;
+    padding: 2rem;
+  }
+
+}
+
+.open {
+  display: block;
+}
+
+.close {
+  display: none;
+}
+
+.modal-content {
+  background-color: transparent;
+}
