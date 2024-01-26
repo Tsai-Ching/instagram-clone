@@ -369,5 +369,5 @@ Remove or comment-out the code block below to see how the browser will fall-back
 }
 
 mainpage-body, profile{
-    padding-top: 0;
+    padding-top: 0 !important;
 }
