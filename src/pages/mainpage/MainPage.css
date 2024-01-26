@@ -359,3 +359,15 @@ Remove or comment-out the code block below to see how the browser will fall-back
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(3, auto);
 }
+
+@media screen and (max-width: 840) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(1, auto);
+    }
+}
+
+mainpage-body, profile{
+    padding-top: 0;
+}
