@@ -32,7 +32,7 @@ function Post({ user }) {
     return (
         <div
             className="post-container white mv4 mw7 center items-stretch-ns flex flex-column-ns relative"
-            style={{ marginBottom: '0 -1px 12px -1px', width: '33vw' }}
+            style={{ marginBottom: '0 -1px 12px -1px' }}
         >
             <div
                 className="flex items-center"

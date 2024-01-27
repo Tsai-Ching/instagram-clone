@@ -4,7 +4,7 @@ import Post from './Post/Post';
 
 function PostList({users}) {
     return (
-        <div className="main-content">
+        <div className="main-content w-100">
             {users.map((user) => (
                 <Post 
                     key={user.id} 

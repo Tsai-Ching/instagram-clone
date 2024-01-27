@@ -48,3 +48,12 @@ div.user-img img{
 .clicked {
   color: red;
 }
+
+/* RWD */
+@media screen and (max-width: 440px) {
+  .post-container {
+    width: 100% !important;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+}

@@ -98,8 +98,8 @@ function Register() {
                     </div>
                 </div>
             </main>
-            <footer className="footer flex flex-column tc">
-                <div className="flex-container justify-center">
+            <footer className="footer flex flex-column tc pa2">
+                <div className="flex-container justify-center pa2">
                     <a className="flex-item">Meta</a>
                     <a className="flex-item">關於</a>
                     <a className="flex-item">部落格</a>

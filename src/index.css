@@ -43,3 +43,16 @@ svg :hover {
   color: red;
   --animate-duration: 500ms;
 }
+
+/* 彈出視窗RWD */
+@media screen and (max-width:440px) {
+  .modal-dialog .post-img{
+    display: none;
+  }
+  .post-content .post-content-hedear {
+    padding: 1rem;
+  }
+  .post-content .post-content-link{
+    display: none;
+  }
+}

@@ -6,15 +6,15 @@ import Comments from './comments/Comments';
 function PostDetail ({user, count}) {
     return (
         <div className="row">
-            <div className="col">
+            <div className="col post-img">
                 <img
                     className="w-100 h-100"
                     alt="post"
                     src={user.photo}
                 />
             </div>
-            <div className="col">
-                <div className="flex flex-row pa4 items-baseline">
+            <div className="col post-content">
+                <div className="flex flex-row pa4 items-baseline post-content-hedear">
                     <Link to={`/mainpage/${user.username}`}>
                         <div className="user-img">
                             <img
@@ -30,6 +30,7 @@ function PostDetail ({user, count}) {
                 <Scroll>
                     <div className="flex flex-row pa4 items-start bt bb b--dark-gray">
                         <Link
+                            className="post-content-link"
                             to={`/mainpage/${user.username}`}
                         >
                             <div className="user-img">

@@ -3,6 +3,36 @@
     width: calc(100% - 10rem);
 }
 
+.mainpage-container {
+    display: flex;
+    justify-content: center; /* 將子元素水平置中 */
+    align-items: center; /* 將子元素垂直置中，如果需要 */
+}
+
+@media  screen and (max-width: 600px){
+    .mainpage-container {
+        margin: 1rem;
+        width: 100%;
+        padding-bottom: 6rem;
+    }
+    .mainpage-body {
+        margin: 0.5rem !important;
+        padding: 0!important;
+    }
+    .profile-user-settings {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .profile{
+        display: flex !important;
+        align-items: center !important;
+    }
+    .profile-user-name {
+        margin-right: 1rem !important;
+    }
+}
+
 .mainpage-body {
     font-family: "Open Sans", Arial, sans-serif;
     min-height: 100vh;
@@ -11,14 +41,23 @@
     margin: 0 4rem;
     padding: 2rem 1.5rem 0;
     width: 100%;
-
 }
+
+@media  screen and (max-width: 1054px){
+    .mainpage-body {
+        margin: 1rem;
+        padding: 0;
+        padding-left: 1rem;;
+    }
+}
+
 .mainpage-header {
     border-bottom: solid #212121;
     max-width: 93.5rem;
     margin: 0 auto;
-    height: 40vh;
+    height: 40%;
     margin-bottom: 3rem;
+    padding: 1rem;
 }
 
 *,
@@ -64,7 +103,8 @@
 
 .profile-image {
     float: left;
-    width: calc(33.333% - 1rem);
+    width: 10rem !important;
+    height: 10rem !important;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,8 +113,8 @@
 
 .profile-image img {
     border-radius: 50%;
-    height: 152px;
-    width: 152px;
+    height: 100% !important;
+    width: 100% !important;
     object-fit: cover;
 }
 
@@ -201,7 +241,6 @@
     .profile {
         display: flex;
         flex-wrap: wrap;
-        padding: 4rem 0;
     }
 
     .profile::after {
@@ -261,9 +300,6 @@
     .profile-stats ul {
         display: flex;
         text-align: center;
-        padding: 1.2rem 0;
-        border-top: 0.1rem solid #dadada;
-        border-bottom: 0.1rem solid #dadada;
     }
 
     .profile-stats li {
@@ -360,7 +396,7 @@ Remove or comment-out the code block below to see how the browser will fall-back
     grid-template-rows: repeat(3, auto);
 }
 
-@media screen and (max-width: 840) {
+@media screen and (max-width: 840px) {
     .grid-container {
         display: grid;
         grid-template-columns: repeat(1, auto);

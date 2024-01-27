@@ -1,7 +1,15 @@
 .login-container {
   background-color: white;
-  min-width: 100%;
-  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 將內容在交叉軸上垂直置中 */
+  height: 100vh;
+}
+
+main {
+  width: 100%;
+  flex: 1; /* 使 main 佔據剩餘的空間 */
 }
 
 input {
