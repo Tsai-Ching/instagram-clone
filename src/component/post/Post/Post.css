@@ -26,6 +26,10 @@ div.user-img img{
   position: relative;
 }
 
+.modal-dialog .post-img {
+  padding-bottom: 0;
+}
+
 .post-img img {
   position: absolute;
   width: 100%;

@@ -75,7 +75,7 @@ function PostForm({ setUsers, onHide, users }) {
         onHide();
     };
     return (
-        <section className="center bg-dark-gray post-form">
+        <section className="center post-form">
             <form onSubmit={onSubmit} className=" h-100 relative center form">
                 <div className="row ma0 bb b--gray">
                     <header className="col white ma0 mw-100 relative flex flex-row">
@@ -112,14 +112,17 @@ function PostForm({ setUsers, onHide, users }) {
                         </div>
                         <output ref={outputRef} />
                     </div>
-                    <textarea 
-                        className="pa2 b--black-20 col-md-6 tl white"
-                        value={postContent}
-                        onChange={(e) => {
-                            setPostContent(e.target.value);
-                        }}
-                        placeholder="撰寫說明文字......"
-                    />
+                    <div className="col-md-6 h-100 br b--gray flex tc pa0 input-text">
+                        <textarea 
+                            className="pa0 b--black-20 h-100 w-100 tl white"
+                            value={postContent}
+                            onChange={(e) => {
+                                setPostContent(e.target.value);
+                            }}
+                            placeholder="撰寫說明文字......"
+                        />
+                    </div>
+                   
 
                   
                 </div>

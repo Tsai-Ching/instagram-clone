@@ -70,6 +70,26 @@ header {
 	height: 388px;
 }
 
+@media screen and (max-width: 760px) {
+  .post-form .form{
+    margin: 0 4rem !important;
+  }
+  .down-area {
+    height: 776px;
+    background-color: #262626;
+  }
+  .input-div {
+    height: 388px !important;
+  }
+  .input-text {
+    height: 194px !important;
+    background-color: #262626;
+    color:white;
+    padding: 1rem;
+    border-top: 1px solid white;
+  }
+}
+
 .add-image {
   position: absolute; 
   color: white;
@@ -81,4 +101,11 @@ header {
 
 .file {
   width: fit-content;
+}
+
+@media screen and (max-width:430px){
+  down-area {
+    display: flex;
+    flex-direction: column;
+  }
 }

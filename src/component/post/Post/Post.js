@@ -86,7 +86,7 @@ function Post({ user }) {
                         onHide={handleClose}
                     >
                         <Modal.Header closeButton className="modal-header" />
-                        <Modal.Body className="show-grid bg-black" style={{width: '80%'}}>
+                        <Modal.Body className="show-grid bg-black" style={{width: '80%', height: '40rem'}}>
                             <PostDetail user={user} count={count} />
                         </Modal.Body>
                     </Modal>

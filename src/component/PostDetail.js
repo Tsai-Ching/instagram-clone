@@ -5,7 +5,7 @@ import Comments from './comments/Comments';
 
 function PostDetail ({user, count}) {
     return (
-        <div className="row">
+        <div className="row postDetail-container">
             <div className="col post-img">
                 <img
                     className="w-100 h-100"

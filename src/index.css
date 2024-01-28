@@ -44,6 +44,9 @@ svg :hover {
   --animate-duration: 500ms;
 }
 
+.post-content{
+  height: 100%;
+}
 /* 彈出視窗RWD */
 @media screen and (max-width:440px) {
   .modal-dialog .post-img{
@@ -55,4 +58,8 @@ svg :hover {
   .post-content .post-content-link{
     display: none;
   }
+}
+
+.postDetail-container {
+  height: 100%;
 }
