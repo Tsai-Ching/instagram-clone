@@ -8,7 +8,6 @@ function PostDetail ({user, count}) {
         <div className="row postDetail-container">
             <div className="col post-img">
                 <img
-                    className="w-100 h-100"
                     alt="post"
                     src={user.photo}
                 />

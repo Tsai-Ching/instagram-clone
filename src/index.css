@@ -48,9 +48,9 @@ svg :hover {
   height: 100%;
 }
 /* 彈出視窗RWD */
-@media screen and (max-width:440px) {
+@media screen and (max-width:600px) {
   .modal-dialog .post-img{
-    display: none;
+    display: none !important;
   }
   .post-content .post-content-hedear {
     padding: 1rem;
