@@ -71,8 +71,10 @@ header {
 }
 
 @media screen and (max-width: 760px) {
-  .post-form .form{
-    margin: 0 4rem !important;
+
+  section.post-form {
+    width:90vw !important;
+
   }
   .down-area {
     height: 776px;
